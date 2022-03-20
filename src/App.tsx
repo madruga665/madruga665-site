@@ -1,7 +1,11 @@
+import MyRoutes from "./routes";
+import GlobalStyles from "./styles/GlobalStyles";
+
 const App = () => {
   return (
     <div className="App">
-      Meu novo portifólio
+      <MyRoutes />
+      <GlobalStyles />
     </div>
   );
 }

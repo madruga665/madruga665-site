@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testes do componente NavLinks Snapshot do componente 1`] = `
+<nav
+  className="sc-bdvvtL ikFlXf"
+>
+  <ul>
+    <li>
+      <a
+        href="/"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        HOME
+      </a>
+    </li>
+    <li>
+      <a
+        href="/projetos"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        PROJETOS
+      </a>
+    </li>
+    <li>
+      <a
+        href="/contato"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        CONTATO
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
