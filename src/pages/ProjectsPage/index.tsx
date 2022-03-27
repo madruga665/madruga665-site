@@ -1,5 +1,5 @@
 import NewsSoon from "../../components/NewsSoon";
-import PageTemplate from "../../components/PageTemplate";
+import PageTemplate from "../../templates/PageTemplate";
 
 
 const ProjectsPage = () => {
