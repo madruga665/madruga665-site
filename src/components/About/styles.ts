@@ -2,18 +2,18 @@ import styled from "styled-components";
 import { AnimationPositionLeft, AnimationPositionRight } from "../../styles/animations";
 
 export const AboutContainer = styled("section")`
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1.5rem;
+  padding: 1.5rem 1rem;
 
   @media only screen and (min-width: 768px) {
     width: 90%;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     margin: 0;
-    gap: 1rem;
   }
 `;
 
