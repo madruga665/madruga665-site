@@ -2,10 +2,12 @@ import styled from "styled-components";
 import { AnimationPositionLeft, AnimationPositionRight } from "../../styles/animations";
 
 export const AboutContainer = styled("section")`
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1.5rem 1rem;
+  margin-top: 8rem;
 
   @media only screen and (min-width: 768px) {
     width: 90%;

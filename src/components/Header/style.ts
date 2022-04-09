@@ -5,6 +5,7 @@ export const HeaderStyled = styled("header")`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: fixed;
   padding: 0.5rem 0;
   gap: 2.5rem;
   width: 100%;
