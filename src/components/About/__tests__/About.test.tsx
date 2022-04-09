@@ -1,12 +1,11 @@
 import { render, screen } from "@testing-library/react";
-import renderer from "react-test-renderer";
 import About from "..";
 
 describe("Testes do componente About", () => {
   test("Snapshot do componente", () => {
-    const tree = renderer.create(<About />).toJSON();
+    const { container } = render(<About />);
 
-    expect(tree).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   test("A imagem esta sendo renderizado", () => {
     render(<About />);
@@ -18,8 +17,8 @@ describe("Testes do componente About", () => {
   test("O texto 'sobre' está sendo renderizado", () => {
     render(<About />);
     const aboutText = screen.getByText(
-      /olá, me chamo , tenho 34 anos e moro em guarujá\-sp\.sou pai da do e do \.sou desenvolvedor web full stack, formado pela e atualmente trabalho na criei esse site para mostrar um pouco de minhas habilidades e experiências \./i
-    );
+      /olá, me chamo luciano amâncio, tenho 34 anos e moro em guarujá-sp\. sou pai da julia do heitor e do dante\. sou desenvolvedor web full stack, formado pela trybe e atualmente trabalho na remessa online criei esse site para mostrar um pouco de minhas habilidades e experiências\./i
+      )
     expect(aboutText).toBeInTheDocument();
   });
 });

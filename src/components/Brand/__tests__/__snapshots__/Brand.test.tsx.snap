@@ -1,26 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testes do componente Brand Snapshot do componente 1`] = `
-<div
-  className="sc-bdvvtL hjtpYV"
->
-  <img
-    alt="Logo de Madruga"
-    height={50}
-    src="/assets/icons8-circled-m-80.png"
-    width={50}
-  />
-  <h2>
-    &lt;
-    <span>
-      L
-    </span>
-    uciano 
-    <span>
-      A
-    </span>
-    mâncio
-    /&gt;
-  </h2>
+<div>
+  <div
+    class="sc-bdvvtL hjtpYV"
+  >
+    <img
+      alt="Logo de Madruga"
+      height="50"
+      src="/assets/icons8-circled-m-80.png"
+      width="50"
+    />
+    <h2>
+      &lt;
+      <span>
+        L
+      </span>
+      uciano 
+      <span>
+        A
+      </span>
+      mâncio
+      /&gt;
+    </h2>
+  </div>
 </div>
 `;

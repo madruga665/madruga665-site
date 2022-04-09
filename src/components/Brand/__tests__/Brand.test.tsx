@@ -1,12 +1,11 @@
 import { render, screen } from "@testing-library/react";
-import renderer from "react-test-renderer";
 import Brand from "..";
 
 describe("Testes do componente Brand", () => {
   test("Snapshot do componente", () => {
-    const tree = renderer.create(<Brand />).toJSON();
+    const { container } = render(<Brand />);
 
-    expect(tree).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   test("O logo esta sendo renderizado", () => {
     render(<Brand />);

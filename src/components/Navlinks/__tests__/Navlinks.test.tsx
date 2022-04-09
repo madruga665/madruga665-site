@@ -1,12 +1,11 @@
 import { render, screen } from "@testing-library/react";
-import renderer from "react-test-renderer";
 import NavLinks from "..";
 
 describe("Testes do componente NavLinks", () => {
   test("Snapshot do componente", () => {
-    const tree = renderer.create(<NavLinks />).toJSON();
+    const { container } = render(<NavLinks />);
 
-    expect(tree).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   test("A navBar está sendo renderizada", () => {
     render(<NavLinks />);
@@ -16,6 +15,6 @@ describe("Testes do componente NavLinks", () => {
   test("Quantidade de items de lista", () => {
     render(<NavLinks />);
     const listItems = screen.getAllByRole("listitem");
-    expect(listItems.length).toBe(3);
+    expect(listItems.length).toBe(4);
   });
 });

@@ -1,13 +1,11 @@
 import { render, screen } from "@testing-library/react";
-import renderer from "react-test-renderer";
 import Header from "..";
-
 
 describe("Testes do componente Header", () => {
   test("Snapshot do componente", () => {
-    const tree = renderer.create(<Header />).toJSON();
+    const { container } = render(<Header />);
 
-    expect(tree).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
   test("O logo esta sendo renderizado", () => {
     render(<Header />);
