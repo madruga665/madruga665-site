@@ -9,9 +9,9 @@ export const AboutContainer = styled("section")`
 
   @media only screen and (min-width: 768px) {
     width: 90%;
+    height: 100vh;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
     margin: 0;
   }
 `;
