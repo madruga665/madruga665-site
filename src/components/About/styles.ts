@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { AnimationPositionLeft, AnimationPositionRight } from "../../styles/animations";
 
 export const AboutContainer = styled("section")`
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -2,7 +2,7 @@ import { AboutContainer, ImageContainer, TextContainer } from "./styles";
 
 const About = () => {
   return (
-    <AboutContainer>
+    <AboutContainer id="sobre">
       <ImageContainer>
         <img
           className='about-image'

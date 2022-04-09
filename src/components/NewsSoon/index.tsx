@@ -2,11 +2,12 @@ import { Container, Title } from "./style";
 
 interface INewsSoonProps {
   title: string;
+  id?: string;
 }
 
-const NewsSoon = ({ title }: INewsSoonProps) => {
+const NewsSoon = ({ title, id }: INewsSoonProps) => {
   return (
-    <Container>
+    <Container id={id}>
       <Title>{title}</Title>
     </Container>
   );

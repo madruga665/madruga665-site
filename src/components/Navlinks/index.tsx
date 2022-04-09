@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Links } from "./style";
 
 const NavLinks = () => {
@@ -6,13 +5,16 @@ const NavLinks = () => {
     <Links>
       <ul>
         <li>
-          <Link to='/'>HOME</Link>
+          <a href='#home'>HOME</a>
         </li>
         <li>
-          <Link to='/projetos'>PROJETOS</Link>
+          <a href='#sobre'>SOBRE</a>
         </li>
         <li>
-          <Link to='/contato'>CONTATO</Link>
+          <a href='#projetos'>PROJETOS</a>
+        </li>
+        <li>
+          <a href='#contato'>CONTATO</a>
         </li>
       </ul>
     </Links>
