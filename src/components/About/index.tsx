@@ -6,7 +6,7 @@ const About = () => {
     const date = new Date();
     const currentYear = date.getFullYear();
     const currentMonth = date.getMonth();
-    const dezemberMonth = 11
+    const dezemberMonth = 11;
 
     if (currentMonth < dezemberMonth) {
       return (currentYear - yearOfBirth - 1).toString();
@@ -19,10 +19,11 @@ const About = () => {
 
   const aboutText = `Olá, me chamo Luciano Amâncio, tenho ${age}  anos e moro em Guarujá-SP. Sou pai da Julia do
   Heitor e do Dante. Sou Desenvolvedor Web Full Stack, formado pela Trybe e atualmente
-  trabalho na Remessa Online Criei esse site para mostrar um pouco de minhas habilidades e
-  experiências.`
+  trabalho na Remessa Online. Criei esse site para mostrar um pouco de minhas habilidades e
+  experiências.`;
+
   return (
-    <AboutContainer id="sobre">
+    <AboutContainer id='sobre'>
       <ImageContainer>
         <img
           className='about-image'
