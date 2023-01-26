@@ -22,7 +22,8 @@ export const ImageContainer = styled("div")`
   margin: 0 0 1rem 0;
   animation: ${AnimationPositionLeft} 2.5s ease-in-out;
   .about-image {
-    border-radius: 2rem;
+    border-radius: 50%;
+    width: 350px;
   }
 `;
 
