@@ -13,6 +13,7 @@ export const AnimationPositionLeft = keyframes`
     transform: translateX(0px);
   }
 `;
+
 export const AnimationPositionRight = keyframes`
   0% {
     opacity: 0;
@@ -24,5 +25,16 @@ export const AnimationPositionRight = keyframes`
   100% {
     opacity: 1;
     transform: translateX(0px);
+  }
+`;
+
+export const FadeIn = keyframes`
+  0% {
+    opacity: 0;
+
+  }
+
+  100% {
+    opacity: 1;
   }
 `;

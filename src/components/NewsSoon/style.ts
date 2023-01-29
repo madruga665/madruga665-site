@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Colors } from '../../styles/variables';
+import { FadeIn } from "../../styles/animations";
 
 export const Title = styled.h1`
 	text-transform: uppercase;
@@ -9,11 +10,12 @@ export const Title = styled.h1`
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
   font-size: 3rem;
+	animation: ${FadeIn} 2.5s ease-in-out;
 `
 export const Container = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-background-color: ${Colors.wetAsphalt};
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: ${Colors.wetAsphalt};
 `
