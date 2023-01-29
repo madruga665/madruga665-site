@@ -8,30 +8,30 @@ exports[`Testes do componente NavLinks Snapshot do componente 1`] = `
     <ul>
       <li>
         <a
-          href="#home"
+          href="/portifolio"
         >
           HOME
         </a>
       </li>
       <li>
         <a
-          href="#sobre"
-        >
-          SOBRE
-        </a>
-      </li>
-      <li>
-        <a
-          href="#projetos"
+          href="/portifolio/projetos"
         >
           PROJETOS
         </a>
       </li>
       <li>
         <a
-          href="#contato"
+          href="/portifolio/contato"
         >
           CONTATO
+        </a>
+      </li>
+      <li>
+        <a
+          href="/portifolio/sobre"
+        >
+          SOBRE
         </a>
       </li>
     </ul>

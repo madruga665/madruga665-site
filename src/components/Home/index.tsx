@@ -1,6 +1,6 @@
 import { AboutContainer, ImageContainer, TextContainer } from "./styles";
 
-const About = () => {
+const Home = () => {
   function calculateAge() {
     const yearOfBirth = 1986;
     const date = new Date();
@@ -38,4 +38,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Home;

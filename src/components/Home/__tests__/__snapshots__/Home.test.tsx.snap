@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testes do componente About Snapshot do componente 1`] = `
+<div>
+  <section
+    class="sc-bdvvtL cuUpu"
+    id="sobre"
+  >
+    <div
+      class="sc-gsDKAQ dcfYXI"
+    >
+      <img
+        alt="Luciano Amancio"
+        class="about-image"
+        src="https://github.com/madruga665.png"
+      />
+    </div>
+    <div
+      class="sc-dkPtRN drNSjw"
+    >
+      <p>
+        Olá, me chamo Luciano Amâncio, tenho 36  anos e moro em Guarujá-SP. Sou pai da Julia do
+  Heitor e do Dante. Sou Desenvolvedor Web Full Stack, formado pela Trybe e atualmente
+  trabalho na Remessa Online. Criei esse site para mostrar um pouco de minhas habilidades e
+  experiências.
+      </p>
+    </div>
+  </section>
+</div>
+`;

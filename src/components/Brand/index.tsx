@@ -1,9 +1,13 @@
 import { LogoName } from "./style";
 
-const Brand = () => {
+interface IPorps {
+  withLogo?: boolean;
+}
+
+const Brand = ({withLogo}: IPorps) => {
   return (
     <LogoName>
-      <img src="/assets/icons8-circled-m-80.png" alt='Logo de Madruga' width={50} height={50} />
+      { withLogo || <img src="/assets/icons8-circled-m-80.png" alt='Logo de Madruga' width={50} height={50} />}
       <h2>
         {"<"}
         <span>L</span>

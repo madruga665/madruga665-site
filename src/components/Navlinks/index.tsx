@@ -1,24 +1,30 @@
+import { Link } from "react-router-dom";
+import EnumHelper from "../../helpers/enumHelper";
 import { Links } from "./style";
 
-const NavLinks = () => {
+interface ILink {
+  title: string;
+  link: string;
+}
+
+function NavLinks() {
+  const enumHelper = new EnumHelper();
+
+  function builLinks(link: ILink, index: number) {
+    return (
+      <li key={index}>
+        <Link to={link.link}>{link.title}</Link>
+      </li>
+    );
+  }
+
   return (
     <Links>
       <ul>
-        <li>
-          <a href='#home'>HOME</a>
-        </li>
-        <li>
-          <a href='#sobre'>SOBRE</a>
-        </li>
-        <li>
-          <a href='#projetos'>PROJETOS</a>
-        </li>
-        <li>
-          <a href='#contato'>CONTATO</a>
-        </li>
+        {enumHelper.links.map(builLinks)}
       </ul>
     </Links>
   );
-};
+}
 
 export default NavLinks;

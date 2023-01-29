@@ -1,15 +1,12 @@
-import About from "../../components/About";
+import Home from "../../components/Home";
 import PageTemplate from "../../templates/PageTemplate";
-import NewsSoon from "../../components/NewsSoon";
 
-const HomePage = () => {
+function HomePage() {
   return (
     <PageTemplate>
-      <About />
-      <NewsSoon id="projetos" title='Em breve novidades' />
-      <NewsSoon id="contato" title='Em breve novidades' />
+      <Home />
     </PageTemplate>
   );
-};
+}
 
 export default HomePage;
