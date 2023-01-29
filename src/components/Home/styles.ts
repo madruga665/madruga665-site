@@ -3,7 +3,7 @@ import { AnimationPositionLeft, AnimationPositionRight } from "../../styles/anim
 import { Colors } from "../../styles/variables";
 
 export const AboutContainer = styled("section")`
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,6 @@ export const AboutContainer = styled("section")`
 
   @media only screen and (min-width: 768px) {
     width: 90%;
-    height: 100vh;
     flex-direction: row;
     justify-content: center;
     margin: 0;
