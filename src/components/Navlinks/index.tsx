@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import EnumHelper from "../../helpers/enumHelper";
-import { Links } from "./style";
+import { Links, StyledListItem } from "./style";
+import useHighlightPath from "../../hooks/usePath";
 
 interface ILink {
   title: string;
@@ -9,20 +10,19 @@ interface ILink {
 
 function NavLinks() {
   const enumHelper = new EnumHelper();
+  const { isCurrentPage } = useHighlightPath();
 
-  function builLinks(link: ILink, index: number) {
+  function buildLinks(link: ILink, index: number) {
     return (
-      <li key={index}>
+      <StyledListItem highlight={isCurrentPage(link.link)} key={index}>
         <Link to={link.link}>{link.title}</Link>
-      </li>
+      </StyledListItem>
     );
   }
 
   return (
     <Links>
-      <ul>
-        {enumHelper.links.map(builLinks)}
-      </ul>
+      <ul>{enumHelper.links.map(buildLinks)}</ul>
     </Links>
   );
 }
