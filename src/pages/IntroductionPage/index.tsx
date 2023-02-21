@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Container } from "./style";
+import { Container, CustomWave } from "./style";
 import Brand from "../../components/Brand";
+import { Colors } from "../../styles/variables";
 
 function IntroductionPage() {
   return (
@@ -10,6 +11,28 @@ function IntroductionPage() {
         <span>Desenvolvedor Web Fullstack</span>
       </div>
       <Link to='/portifolio'>ir para portifolio</Link>
+
+      <CustomWave
+        fill={Colors.nephritis}
+        paused={false}
+        options={{
+          height: 60,
+          amplitude: 80,
+          speed: 0.15,
+          points: 6,
+        }}
+      />
+
+      <CustomWave
+        fill={Colors.emerald}
+        paused={false}
+        options={{
+          height: 80,
+          amplitude: 60,
+          speed: 0.15,
+          points: 6,
+        }}
+      />
     </Container>
   );
 }

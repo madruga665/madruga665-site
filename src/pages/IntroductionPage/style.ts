@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import Wave from "react-wavify";
 import { Colors } from "../../styles/variables";
-import { AnimationPositionRight, AnimationPositionLeft } from "../../styles/animations";
+import { AnimationPositionRight, AnimationPositionLeft, FadeIn } from "../../styles/animations";
 
 export const Container = styled.div`
   display: flex;
@@ -38,5 +39,14 @@ export const Container = styled.div`
       background-color: ${Colors.midnightBlue};
       transition: 500ms;
     }
+  }
+`;
+
+export const CustomWave = styled(Wave)`
+  position: absolute;
+  bottom: 0;
+
+  svg {
+    animation: ${FadeIn} 10s ease-in-out;
   }
 `;
