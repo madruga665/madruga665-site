@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import EnumHelper from "../../helpers/enumHelper";
 import { Links, StyledListItem } from "./style";
 import useHighlightPath from "../../hooks/usePath";
@@ -15,7 +15,7 @@ function NavLinks() {
   function buildLinks(link: ILink, index: number) {
     return (
       <StyledListItem highlight={isCurrentPage(link.link)} key={index}>
-        <Link to={link.link}>{link.title}</Link>
+        <Link href={link.link}>{link.title}</Link>
       </StyledListItem>
     );
   }

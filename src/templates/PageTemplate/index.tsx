@@ -1,5 +1,5 @@
 import Header from "../../components/Header";
-import { Container } from "./styles";
+import styles from "./styles.module.scss";
 
 interface IPageTemplateProps {
   children: React.ReactNode;
@@ -7,10 +7,10 @@ interface IPageTemplateProps {
 
 const PageTemplate = ({ children }: IPageTemplateProps) => {
   return (
-    <Container>
+    <main className={styles.container}>
       <Header />
       {children}
-    </Container>
+    </main>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Container, CustomWave } from "./style";
 import Brand from "../../components/Brand";
 import { Colors } from "../../styles/variables";
@@ -10,7 +10,7 @@ function IntroductionPage() {
         <Brand withLogo />
         <span>Desenvolvedor Web Fullstack</span>
       </div>
-      <Link to='/portifolio'>ir para portifolio</Link>
+      <Link href='/portifolio'>ir para portifolio</Link>
 
       <CustomWave
         fill={Colors.nephritis}

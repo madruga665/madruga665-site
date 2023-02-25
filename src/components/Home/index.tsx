@@ -1,26 +1,19 @@
+import { useEffect, useState } from "react";
 import { AboutContainer, ImageContainer, TextContainer } from "./styles";
 
-const Home = () => {
-  function calculateAge() {
-    const yearOfBirth = 1986;
-    const date = new Date();
-    const currentYear = date.getFullYear();
-    const currentMonth = date.getMonth();
-    const dezemberMonth = 11;
+function Home() {
+  const [presentation, setPresentation] = useState('');
 
-    if (currentMonth < dezemberMonth) {
-      return (currentYear - yearOfBirth - 1).toString();
-    }
+  const teste = async () => {
+    const response = await fetch('http://localhost:3000/api/notion');
+    const data = await response.json();
 
-    return (currentYear - yearOfBirth).toString();
+    setPresentation(data);
   }
 
-  const age = calculateAge();
-
-  const aboutText = `Olá, me chamo Luciano Amâncio, tenho ${age}  anos e moro em Guarujá-SP. Sou pai da Julia do
-  Heitor e do Dante. Sou Desenvolvedor Web Full Stack, formado pela Trybe e atualmente
-  trabalho na Remessa Online. Criei esse site para mostrar um pouco de minhas habilidades e
-  experiências.`;
+  useEffect(() => {
+    teste();
+  },[])
 
   return (
     <AboutContainer id='sobre'>
@@ -32,10 +25,10 @@ const Home = () => {
         />
       </ImageContainer>
       <TextContainer>
-        <p>{aboutText}</p>
+        <p>{presentation}</p>
       </TextContainer>
     </AboutContainer>
   );
-};
+}
 
 export default Home;
