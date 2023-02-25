@@ -7,7 +7,7 @@ function Home() {
   const [presentation, setPresentation] = useState("");
 
   const teste = async () => {
-    const response = await fetch(`${process.env.API_BASE_URL}api/notion`);
+    const response = await fetch('https://madruga665.vercel.app/api/notion');
     const data = await response.json();
 
     setPresentation(data);
@@ -21,15 +21,15 @@ function Home() {
     <div className={styles.AboutContainer}>
       {!presentation ? (
         <Puff
-        height="140"
-        width="140"
-        radius={1}
-        color={colors.colorEmerald}
-        ariaLabel="puff-loading"
-        wrapperStyle={{}}
-        wrapperClass=""
-        visible={true}
-      />
+          height='140'
+          width='140'
+          radius={1}
+          color={colors.colorEmerald}
+          ariaLabel='puff-loading'
+          wrapperStyle={{}}
+          wrapperClass=''
+          visible={true}
+        />
       ) : (
         <>
           <div className={styles.ImageContainer}>
