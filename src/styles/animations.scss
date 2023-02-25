@@ -1,0 +1,41 @@
+@keyframes AnimationPositionLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes AnimationPositionRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  50% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

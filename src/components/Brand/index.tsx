@@ -1,13 +1,15 @@
-import { LogoName } from "./style";
+import styles from "./styles.module.scss";
 
 interface IPorps {
   withLogo?: boolean;
 }
 
-const Brand = ({withLogo}: IPorps) => {
+const Brand = ({ withLogo }: IPorps) => {
   return (
-    <LogoName>
-      { withLogo || <img src="/assets/icons8-circled-m-80.png" alt='Logo de Madruga' width={50} height={50} />}
+    <div className={styles.LogoName}>
+      {withLogo || (
+        <img src='/assets/icons8-circled-m-80.png' alt='Logo de Madruga' width={50} height={50} />
+      )}
       <h2>
         {"<"}
         <span>L</span>
@@ -15,7 +17,7 @@ const Brand = ({withLogo}: IPorps) => {
         mâncio
         {"/>"}
       </h2>
-    </LogoName>
+    </div>
   );
 };
 

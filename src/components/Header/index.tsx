@@ -1,13 +1,13 @@
 import Brand from "../Brand";
 import NavLinks from "../Navlinks";
-import { HeaderStyled } from "./style";
+import styles from "./styles.module.scss";
 
 const Header = () => {
   return (
-    <HeaderStyled>
+    <header className={styles.Header}>
       <Brand />
       <NavLinks />
-    </HeaderStyled>
+    </header>
   );
 };
 

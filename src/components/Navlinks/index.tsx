@@ -1,7 +1,7 @@
 import Link from "next/link";
 import EnumHelper from "../../helpers/enumHelper";
-import { Links, StyledListItem } from "./style";
 import useHighlightPath from "../../hooks/usePath";
+import styles from "./styles.module.scss";
 
 interface ILink {
   title: string;
@@ -14,16 +14,20 @@ function NavLinks() {
 
   function buildLinks(link: ILink, index: number) {
     return (
-      <StyledListItem highlight={isCurrentPage(link.link)} key={index}>
+      <li
+        className={styles.StyledListItem}
+        style={isCurrentPage(link.link) ? { fontWeight: 800 } : { fontWeight: 300 }}
+        key={index}
+      >
         <Link href={link.link}>{link.title}</Link>
-      </StyledListItem>
+      </li>
     );
   }
 
   return (
-    <Links>
+    <nav className={styles.Links}>
       <ul>{enumHelper.links.map(buildLinks)}</ul>
-    </Links>
+    </nav>
   );
 }
 

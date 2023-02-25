@@ -1,0 +1,39 @@
+@import '../../styles/colors.module.scss';
+
+.Links {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  width: 20rem;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    list-style: none;
+  }
+}
+
+.StyledListItem {
+  font-weight: 300;
+  cursor: pointer;
+
+  & a {
+    color: $color-clouds;
+    text-decoration: none;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    border-bottom: 0.2rem solid $color-emerald;
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+  }
+
+  &:hover {
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}

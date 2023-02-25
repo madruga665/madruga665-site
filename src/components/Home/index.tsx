@@ -1,33 +1,50 @@
 import { useEffect, useState } from "react";
-import { AboutContainer, ImageContainer, TextContainer } from "./styles";
+import styles from "./styles.module.scss";
+import { Puff } from "react-loader-spinner";
+import colors from "../../styles/colors.module.scss";
 
 function Home() {
-  const [presentation, setPresentation] = useState('');
+  const [presentation, setPresentation] = useState("");
 
   const teste = async () => {
-    const response = await fetch('http://localhost:3000/api/notion');
+    const response = await fetch("http://localhost:3000/api/notion");
     const data = await response.json();
 
     setPresentation(data);
-  }
+  };
 
   useEffect(() => {
     teste();
-  },[])
+  }, []);
 
   return (
-    <AboutContainer id='sobre'>
-      <ImageContainer>
-        <img
-          className='about-image'
-          src='https://github.com/madruga665.png'
-          alt='Luciano Amancio'
-        />
-      </ImageContainer>
-      <TextContainer>
-        <p>{presentation}</p>
-      </TextContainer>
-    </AboutContainer>
+    <div className={styles.AboutContainer}>
+      {!presentation ? (
+        <Puff
+        height="140"
+        width="140"
+        radius={1}
+        color={colors.colorEmerald}
+        ariaLabel="puff-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+      />
+      ) : (
+        <>
+          <div className={styles.ImageContainer}>
+            <img
+              className={styles["about-image"]}
+              src='https://github.com/madruga665.png'
+              alt='Luciano Amancio'
+            />
+          </div>
+          <div className={styles.TextContainer}>
+            <p>{presentation}</p>
+          </div>
+        </>
+      )}
+    </div>
   );
 }
 
