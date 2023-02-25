@@ -1,15 +1,14 @@
-import { Container, Title } from "./style";
+import styles from "./styles.module.scss";
 
 interface INewsSoonProps {
   title: string;
-  id?: string;
 }
 
-const NewsSoon = ({ title, id }: INewsSoonProps) => {
+const NewsSoon = ({ title }: INewsSoonProps) => {
   return (
-    <Container id={id}>
-      <Title>{title}</Title>
-    </Container>
+    <div className={styles.Container}>
+      <h1 className={styles.Title}>{title}</h1>
+    </div>
   );
 };
 

@@ -1,0 +1,50 @@
+@import "../../styles/colors.module.scss";
+@import "../../styles/animations.scss";
+
+.Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  background-color: $color-wetAsphalt;
+  gap: 50px;
+  color: $color-clouds;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: AnimationPositionRight 2.5s ease-in-out;
+  }
+
+  a {
+    border-radius: 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: $color-clouds;
+    text-transform: upperCase;
+    animation: AnimationPositionLeft 2.5s ease-in-out;
+
+    &:not(:hover) {
+      background-color: $color-emerald;
+      transition: 500ms;
+    }
+
+    &:hover {
+      background-color: $color-midnightBlue;
+      transition: 500ms;
+    }
+  }
+}
+
+.CustomWave {
+  position: absolute;
+  bottom: 0;
+
+  svg {
+    animation: FadeIn 10s ease-in-out;
+  }
+}

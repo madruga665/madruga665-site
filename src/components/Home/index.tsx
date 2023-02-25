@@ -1,41 +1,51 @@
-import { AboutContainer, ImageContainer, TextContainer } from "./styles";
+import { useEffect, useState } from "react";
+import styles from "./styles.module.scss";
+import { Puff } from "react-loader-spinner";
+import colors from "../../styles/colors.module.scss";
 
-const Home = () => {
-  function calculateAge() {
-    const yearOfBirth = 1986;
-    const date = new Date();
-    const currentYear = date.getFullYear();
-    const currentMonth = date.getMonth();
-    const dezemberMonth = 11;
+function Home() {
+  const [presentation, setPresentation] = useState("");
 
-    if (currentMonth < dezemberMonth) {
-      return (currentYear - yearOfBirth - 1).toString();
-    }
+  const teste = async () => {
+    const response = await fetch("http://localhost:3000/api/notion");
+    const data = await response.json();
 
-    return (currentYear - yearOfBirth).toString();
-  }
+    setPresentation(data);
+  };
 
-  const age = calculateAge();
-
-  const aboutText = `Olá, me chamo Luciano Amâncio, tenho ${age}  anos e moro em Guarujá-SP. Sou pai da Julia do
-  Heitor e do Dante. Sou Desenvolvedor Web Full Stack, formado pela Trybe e atualmente
-  trabalho na Remessa Online. Criei esse site para mostrar um pouco de minhas habilidades e
-  experiências.`;
+  useEffect(() => {
+    teste();
+  }, []);
 
   return (
-    <AboutContainer id='sobre'>
-      <ImageContainer>
-        <img
-          className='about-image'
-          src='https://github.com/madruga665.png'
-          alt='Luciano Amancio'
-        />
-      </ImageContainer>
-      <TextContainer>
-        <p>{aboutText}</p>
-      </TextContainer>
-    </AboutContainer>
+    <div className={styles.AboutContainer}>
+      {!presentation ? (
+        <Puff
+        height="140"
+        width="140"
+        radius={1}
+        color={colors.colorEmerald}
+        ariaLabel="puff-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+      />
+      ) : (
+        <>
+          <div className={styles.ImageContainer}>
+            <img
+              className={styles["about-image"]}
+              src='https://github.com/madruga665.png'
+              alt='Luciano Amancio'
+            />
+          </div>
+          <div className={styles.TextContainer}>
+            <p>{presentation}</p>
+          </div>
+        </>
+      )}
+    </div>
   );
-};
+}
 
 export default Home;

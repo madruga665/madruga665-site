@@ -1,19 +1,21 @@
-import { Link } from "react-router-dom";
-import { Container, CustomWave } from "./style";
+import Link from "next/link";
+import styles from "./styles.module.scss";
 import Brand from "../../components/Brand";
-import { Colors } from "../../styles/variables";
+import Wave from "react-wavify";
+import colors from "../../styles/colors.module.scss";
 
 function IntroductionPage() {
   return (
-    <Container>
+    <div className={styles.Container}>
       <div>
         <Brand withLogo />
         <span>Desenvolvedor Web Fullstack</span>
       </div>
-      <Link to='/portifolio'>ir para portifolio</Link>
+      <Link href='/portifolio'>ir para portifolio</Link>
 
-      <CustomWave
-        fill={Colors.nephritis}
+      <Wave
+        fill={colors.colorNephritis}
+        className={styles.CustomWave}
         paused={false}
         options={{
           height: 60,
@@ -23,8 +25,9 @@ function IntroductionPage() {
         }}
       />
 
-      <CustomWave
-        fill={Colors.emerald}
+      <Wave
+        fill={colors.colorEmerald}
+        className={styles.CustomWave}
         paused={false}
         options={{
           height: 80,
@@ -33,7 +36,7 @@ function IntroductionPage() {
           points: 6,
         }}
       />
-    </Container>
+    </div>
   );
 }
 
