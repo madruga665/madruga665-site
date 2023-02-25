@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
-import styles from "./styles.module.scss";
 import { Puff } from "react-loader-spinner";
+import axios from 'axios';
+
+import styles from "./styles.module.scss";
 import colors from "../../styles/colors.module.scss";
 
 function Home() {
   const [presentation, setPresentation] = useState("");
 
   const teste = async () => {
-    const response = await fetch('https://madruga665.vercel.app/api/notion');
-    const data = await response.json();
+    const response = await axios.get('https://madruga665.vercel.app/api/notion');
+    const data = await response.data;
 
     setPresentation(data);
   };
