@@ -7,7 +7,7 @@ function Home() {
   const [presentation, setPresentation] = useState("");
 
   const teste = async () => {
-    const response = await fetch("http://localhost:3000/api/notion");
+    const response = await fetch("https://madruga665.vercel.app/api/notion");
     const data = await response.json();
 
     setPresentation(data);
