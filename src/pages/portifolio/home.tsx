@@ -13,7 +13,7 @@ function Home({ homePageData }: hompePageProps) {
 }
 
 export async function getServerSideProps() {
-  const response = await axios.get("https://madruga665.vercel.app//api/notion");
+  const response = await axios.get(`${process.env.API_BASE_URL}/api/notion`);
   const homePageData = await response.data;
   return {
     props: {
