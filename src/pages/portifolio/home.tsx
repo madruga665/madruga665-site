@@ -9,7 +9,7 @@ interface hompePageProps {
 }
 
 function Home({ homePageData }: hompePageProps) {
-  return <HomePage homePageData={homePageData} />;
+  return <HomePage image={homePageData.image} presentation={homePageData.presentation}/>;
 }
 
 export async function getStaticProps() {

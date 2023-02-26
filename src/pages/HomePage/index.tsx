@@ -5,18 +5,15 @@ import colors from "../../styles/colors.module.scss";
 import PageTemplate from "../../templates/PageTemplate";
 
 interface hompePageProps {
-  homePageData: {
-    presentation: string;
-    image: string;
-  }
+  presentation: string;
+  image: string;
 }
 
-function HomePage({ homePageData }: hompePageProps) {
-  const {image, presentation} = homePageData;
+function HomePage({ image, presentation }: hompePageProps) {
   return (
     <PageTemplate>
       <div className={styles.AboutContainer}>
-        {!homePageData ? (
+        {!image || !presentation ? (
           <Puff
             height='140'
             width='140'
