@@ -12,8 +12,8 @@ function Home({ homePageData }: hompePageProps) {
   return <HomePage image={homePageData.image} presentation={homePageData.presentation}/>;
 }
 
-export async function getStaticProps() {
-  const response = await axios.get("https://madruga665.vercel.app/api/notion");
+export async function getServerSideProps() {
+  const response = await axios.get("https://madruga665.vercel.app//api/notion");
   const homePageData = await response.data;
   return {
     props: {
