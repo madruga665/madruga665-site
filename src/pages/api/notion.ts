@@ -16,6 +16,7 @@ async function getHomePageData(_req: NextApiRequest, res: NextApiResponse) {
     res.status(200).json(data);
   } catch (error) {
     console.log(error);
+    throw error;
   }
 }
 

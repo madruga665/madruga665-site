@@ -5,7 +5,11 @@ interface hompePageProps {
   homePageData: {
     presentation: string;
     image: string;
-  }
+  };
+}
+
+function Home({ homePageData }: hompePageProps) {
+  return <HomePage homePageData={homePageData} />;
 }
 
 export async function getStaticProps() {
@@ -17,10 +21,5 @@ export async function getStaticProps() {
     },
   };
 }
-
-function Home({homePageData}: hompePageProps) {
-  return <HomePage homePageData={homePageData} />;
-}
-
 
 export default Home;
