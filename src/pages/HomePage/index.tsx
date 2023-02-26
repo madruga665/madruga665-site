@@ -1,29 +1,22 @@
-import { useEffect, useState } from "react";
 import { Puff } from "react-loader-spinner";
-import axios from "axios";
 
 import styles from "./styles.module.scss";
 import colors from "../../styles/colors.module.scss";
 import PageTemplate from "../../templates/PageTemplate";
 
-function HomePage() {
-  const [presentation, setPresentation] = useState("");
+interface hompePageProps {
+  homePageData: {
+    presentation: string;
+    image: string;
+  }
+}
 
-  const teste = async () => {
-    const response = await axios.get("https://madruga665.vercel.app/api/notion");
-    const data = await response.data;
-
-    setPresentation(data);
-  };
-
-  useEffect(() => {
-    teste();
-  }, []);
-
+function HomePage({ homePageData }: hompePageProps) {
+  const {image, presentation} = homePageData;
   return (
     <PageTemplate>
       <div className={styles.AboutContainer}>
-        {!presentation ? (
+        {!homePageData ? (
           <Puff
             height='140'
             width='140'
@@ -37,11 +30,7 @@ function HomePage() {
         ) : (
           <>
             <div className={styles.ImageContainer}>
-              <img
-                className={styles["about-image"]}
-                src='https://github.com/madruga665.png'
-                alt='Luciano Amancio'
-              />
+              <img className={styles["about-image"]} src={image} alt='Luciano Amancio' />
             </div>
             <div className={styles.TextContainer}>
               <p>{presentation}</p>
