@@ -1,5 +1,7 @@
 import axios from "axios";
 import HomePage from "../HomePage";
+import { Suspense } from "react";
+import Loading from "../../components/Loading/loading";
 
 interface hompePageProps {
   homePageData: {
@@ -9,7 +11,11 @@ interface hompePageProps {
 }
 
 function Home({ homePageData }: hompePageProps) {
-  return <HomePage image={homePageData.image} presentation={homePageData.presentation}/>;
+  return (
+    <Suspense fallback={<Loading />}>
+      <HomePage image={homePageData.image} presentation={homePageData.presentation} />
+    </Suspense>
+  );
 }
 
 export async function getServerSideProps() {
