@@ -5,12 +5,12 @@ interface IPageTemplateProps {
   children: React.ReactNode;
 }
 
-const PageTemplate = ({ children }: IPageTemplateProps) => {
+function PageTemplate ({ children }: IPageTemplateProps) {
   return (
-    <main className={styles.container}>
+    <div className={styles.Container}>
       <Header />
       {children}
-    </main>
+    </div>
   );
 };
 

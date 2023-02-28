@@ -9,14 +9,14 @@ interface hompePageProps {
 function HomePage({ image, presentation }: hompePageProps) {
   return (
     <PageTemplate>
-      <div className={styles.AboutContainer}>
+      <section className={styles.Container}>
         <div className={styles.ImageContainer}>
           <img className={styles["about-image"]} src={image} alt='Luciano Amancio' />
         </div>
         <div className={styles.TextContainer}>
           <p>{presentation}</p>
         </div>
-      </div>
+      </section>
     </PageTemplate>
   );
 }
