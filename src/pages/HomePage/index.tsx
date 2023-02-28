@@ -1,12 +1,8 @@
+import { HomePageProps } from "../../interfaces/homePage";
 import PageTemplate from "../../templates/PageTemplate";
 import styles from "./styles.module.scss";
 
-interface hompePageProps {
-  presentation: string;
-  image: string;
-}
-
-function HomePage({ image, presentation }: hompePageProps) {
+function HomePage({ image, presentation }: HomePageProps) {
   return (
     <PageTemplate>
       <section className={styles.Container}>
