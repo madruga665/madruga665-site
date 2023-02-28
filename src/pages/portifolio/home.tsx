@@ -1,5 +1,5 @@
 import axios from "axios";
-import HomePage from "../HomePage";
+import HomePage from "../../page-components/HomePage";
 
 interface hompePageProps {
   homePageData: {
