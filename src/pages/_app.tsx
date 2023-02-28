@@ -1,4 +1,5 @@
 import type { AppProps } from "next/app";
+import { Analytics } from '@vercel/analytics/react';
 import { Poppins } from "next/font/google";
 import "../styles/global.scss";
 
@@ -12,6 +13,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <main className={inter.className}>
       <Component {...pageProps} />
+      <Analytics />
     </main>
   );
 }
