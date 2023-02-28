@@ -1,7 +1,7 @@
 @keyframes AnimationPositionLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateX(-15px);
   }
 
   50% {
@@ -17,7 +17,7 @@
 @keyframes AnimationPositionRight {
   0% {
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateX(15px);
   }
 
   50% {
