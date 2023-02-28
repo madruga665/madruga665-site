@@ -17,11 +17,7 @@ function NavLinks() {
     return (
       <li
         className={styles.StyledListItem}
-        style={
-          isCurrentPage(link.link)
-            ? { fontWeight: 800, borderBottom: `0.2rem solid ${colors.colorEmerald}` }
-            : { fontWeight: 300 }
-        }
+        style={isCurrentPage(link.link) ? { fontWeight: 800 } : { fontWeight: 300 }}
         key={index}
       >
         <Link href={link.link}>{link.title}</Link>
