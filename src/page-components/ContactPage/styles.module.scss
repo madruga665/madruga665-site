@@ -1,0 +1,55 @@
+@import "../../styles/colors.module.scss";
+
+.Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.Form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  width: 90%;
+}
+
+.FormControl {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 500px;
+  gap: 5px;
+
+
+  label {
+    font-weight: 500;
+    color: $color-clouds;
+  }
+
+  textarea,
+  input {
+    border: none;
+  }
+
+  input {
+    border-radius: 8px;
+    height: 28px;
+    padding: 0 25px;
+  }
+
+  textarea {
+    height: 200px;
+    resize: none;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  textarea:focus,
+  input:focus {
+    outline: none;
+  }
+}

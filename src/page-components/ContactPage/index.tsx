@@ -1,11 +1,27 @@
-import NewsSoon from "../../components/NewsSoon";
 import PageTemplate from "../../templates/PageTemplate";
+import styles from "./styles.module.scss";
 
 function ContactPage() {
-  const title = "Logo mais vai ter coisa aqui!";
   return (
     <PageTemplate>
-      <NewsSoon title={title} />
+      <section className={styles.Container}>
+        <form className={styles.Form}>
+          <div className={styles.FormControl}>
+            <label htmlFor='name'>Seu Nome</label>
+            <input id='name' type='text' />
+          </div>
+
+          <div className={styles.FormControl}>
+            <label htmlFor='email'>Seu Email</label>
+            <input id='email' type='email' />
+          </div>
+
+          <div className={styles.FormControl}>
+            <label htmlFor='message'>Sua Mensagem</label>
+            <textarea id='message' />
+          </div>
+        </form>
+      </section>
     </PageTemplate>
   );
 }
