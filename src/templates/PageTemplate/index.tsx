@@ -5,13 +5,13 @@ interface IPageTemplateProps {
   children: React.ReactNode;
 }
 
-function PageTemplate ({ children }: IPageTemplateProps) {
+function PageTemplate({ children }: IPageTemplateProps) {
   return (
     <div className={styles.Container}>
       <Header />
-      {children}
+      <section className={styles.ContentContainer}>{children}</section>
     </div>
   );
-};
+}
 
 export default PageTemplate;

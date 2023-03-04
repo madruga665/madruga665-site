@@ -6,6 +6,7 @@ interface ButtonProps {
   label: string;
   loading?: boolean;
   disabled?: boolean;
+  type?: "submit" | "button";
   onclick?: () => void;
 }
 
