@@ -19,6 +19,7 @@ function HomePage({ image, presentation }: HomePageProps) {
             className={styles["About-image"]}
             src={image}
             alt='Luciano Amancio'
+            priority
           />
         </div>
         <div className={styles.TextContainer}>
