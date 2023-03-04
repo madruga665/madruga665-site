@@ -15,7 +15,9 @@ function IntroductionPage() {
         <Brand withLogo />
         <span>Desenvolvedor Web Fullstack</span>
       </div>
-      <Link href='/portifolio/home'>ir para portifolio</Link>
+      <Link role='button' href='/portifolio/home'>
+        ir para portifolio
+      </Link>
 
       <Wave
         fill={colors.colorNephritis}

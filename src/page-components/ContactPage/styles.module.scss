@@ -13,7 +13,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   width: 90%;
 }
 
@@ -23,7 +23,6 @@
   width: 90%;
   max-width: 500px;
   gap: 5px;
-
 
   label {
     font-weight: 500;
@@ -37,7 +36,7 @@
 
   input {
     border-radius: 8px;
-    height: 28px;
+    height: 40px;
     padding: 0 25px;
   }
 
@@ -52,4 +51,10 @@
   input:focus {
     outline: none;
   }
+}
+
+.ButtonContainer {
+  width: 90%;
+  height: 40px;
+  max-width: 500px;
 }

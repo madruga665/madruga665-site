@@ -1,3 +1,4 @@
+import Button from "../../components/Button";
 import PageTemplate from "../../templates/PageTemplate";
 import styles from "./styles.module.scss";
 
@@ -19,6 +20,9 @@ function ContactPage() {
           <div className={styles.FormControl}>
             <label htmlFor='message'>Sua Mensagem</label>
             <textarea id='message' />
+          </div>
+          <div className={styles.ButtonContainer}>
+            <Button label='Enviar' />
           </div>
         </form>
       </section>

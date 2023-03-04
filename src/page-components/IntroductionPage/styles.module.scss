@@ -27,6 +27,7 @@
     color: $color-clouds;
     text-transform: upperCase;
     animation: FadeIn 2.5s ease-in-out;
+    cursor: pointer;
 
     &:not(:hover) {
       background-color: $color-emerald;
