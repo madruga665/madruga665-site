@@ -12,17 +12,12 @@
   text-decoration: none;
   color: $color-clouds;
   text-transform: upperCase;
-  animation: FadeIn 2.5s ease-in-out;
   cursor: pointer;
   font-weight: 600;
-
-  &:not(:hover) {
-    background-color: $color-emerald;
-    transition: 500ms;
-  }
+  background-color: $color-emerald;
+  transition: 500ms;
 
   &:hover {
     background-color: $color-midnightBlue;
-    transition: 500ms;
   }
 }
