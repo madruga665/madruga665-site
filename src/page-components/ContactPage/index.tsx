@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useForm } from "react-hook-form";
 
 import Button from "../../components/Button";
@@ -12,10 +13,19 @@ interface formData {
 }
 
 function ContactPage() {
-  const { register, handleSubmit, formState } = useForm<formData>();
-  const { errors } = formState;
-  function onSubmit(data: formData): void {
-    console.log(data);
+  const { register, handleSubmit, formState, reset } = useForm<formData>({
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+  });
+  const { errors, isSubmitting } = formState;
+
+  async function onSubmit(data: formData) {
+    reset();
+    alert("mensagem enviada com sucesso");
+    await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/notion`, data);
   }
 
   return (
@@ -39,7 +49,7 @@ function ContactPage() {
           {errors.message && <span className={styles.ErrorText}>Mensagem obrigatória</span>}
         </div>
         <div className={styles.ButtonContainer}>
-          <Button type='submit' label='Enviar' />
+          <Button type='submit' label='Enviar' loading={isSubmitting} />
         </div>
       </form>
     </PageTemplate>
