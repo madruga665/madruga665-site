@@ -25,7 +25,7 @@ function ContactPage() {
   async function onSubmit(data: formData) {
     reset();
     alert("mensagem enviada com sucesso");
-    await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/notion`, data);
+    await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/contact`, data);
   }
 
   return (

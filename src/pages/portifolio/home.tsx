@@ -13,7 +13,7 @@ function Home({ homePageData }: hompePageProps) {
 }
 
 export async function getServerSideProps() {
-  const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/notion`);
+  const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/home`);
   const homePageData = await response.data;
   return {
     props: {
