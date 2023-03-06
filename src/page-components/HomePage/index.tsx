@@ -11,7 +11,7 @@ function HomePage({ image, presentation }: HomePageProps) {
       <Head>
         <title>Luciano Amâncio - Home</title>
       </Head>
-      <section className={styles.Container}>
+      <div className={styles.Container}>
         <div className={styles.ImageContainer}>
           <Image
             width={350}
@@ -25,7 +25,7 @@ function HomePage({ image, presentation }: HomePageProps) {
         <div className={styles.TextContainer}>
           <p>{presentation}</p>
         </div>
-      </section>
+      </div>
     </PageTemplate>
   );
 }
