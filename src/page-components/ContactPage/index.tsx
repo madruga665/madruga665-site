@@ -31,6 +31,10 @@ function ContactPage() {
   return (
     <PageTemplate>
       <form className={styles.Form} onSubmit={handleSubmit(onSubmit)}>
+      <p className={styles.Text}>
+        Caso queira entrar em contado ou deixar algum feedback fique à vontade para me mandar
+        uma mensagem.
+      </p>
         <div className={styles.FormControl}>
           <label htmlFor='name'>Seu Nome</label>
           <input id='name' type='text' {...register("name", { required: true })} />

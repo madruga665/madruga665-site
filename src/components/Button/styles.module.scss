@@ -16,6 +16,7 @@
   font-weight: 600;
   background-color: $color-emerald;
   transition: 500ms;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
 
   &:hover {
     background-color: $color-midnightBlue;

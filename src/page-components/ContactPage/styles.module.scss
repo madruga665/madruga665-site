@@ -15,12 +15,17 @@
   align-items: center;
   flex-direction: column;
   gap: 15px;
-  width: 90%;
+  width: 95%;
+  background-color: $color-midnightBlue;
+  border-radius: 15px;
+  padding: 25px;
+  animation: SlideIn 400ms ease-in-out;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
 
-  $total-elements: 4;
+  $total-elements: 5;
 
   @for $i from 1 through $total-elements {
-    $delay: ($i - 1) * 0.3s;
+    $delay: ($i + 1) * 0.2s;
 
     > :nth-child(#{$i}) {
       opacity: 0;
@@ -29,14 +34,25 @@
       animation-delay: $delay;
     }
   }
+
+  @media only screen and (min-width: 768px) {
+    max-width: 500px;
+  }
+
+  .Text {
+    color: $color-clouds;
+    max-width: 500px;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
 }
 
 .FormControl {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
   max-width: 500px;
-  gap: 5px;
+  gap: 0.2rem;
 
   label {
     font-weight: 500;
@@ -52,6 +68,11 @@
     border: none;
   }
 
+  textarea:focus,
+  input:focus {
+    outline: none;
+  }
+
   input {
     border-radius: 8px;
     height: 40px;
@@ -59,20 +80,19 @@
   }
 
   textarea {
-    height: 200px;
+    height: 90px;
     resize: none;
     border-radius: 10px;
     padding: 20px;
-  }
 
-  textarea:focus,
-  input:focus {
-    outline: none;
+    @media only screen and (min-width: 768px) {
+      height: 200px;
+    }
   }
 }
 
 .ButtonContainer {
-  width: 90%;
+  width: 100%;
   height: 40px;
   max-width: 500px;
 }
