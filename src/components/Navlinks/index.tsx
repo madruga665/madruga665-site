@@ -2,7 +2,6 @@ import Link from "next/link";
 import EnumHelper from "../../helpers/enumHelper";
 import useHighlightPath from "../../hooks/usePath";
 import styles from "./styles.module.scss";
-import colors from "../../styles/colors.module.scss";
 
 interface ILink {
   title: string;

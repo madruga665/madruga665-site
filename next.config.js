@@ -6,7 +6,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "github.com",
-        pathname: "/madruga665.png",
+      },
+      {
+        protocol: "https",
+        hostname: "s3.us-west-2.amazonaws.com",
       },
     ],
   },

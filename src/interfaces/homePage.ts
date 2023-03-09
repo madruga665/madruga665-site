@@ -1,10 +1,10 @@
-export interface RichText {
+interface RichText {
   text: {
     content: string;
   };
 }
 
-export interface Files {
+interface Files {
   name: string;
 }
 
