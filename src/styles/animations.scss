@@ -1,3 +1,5 @@
+@import './colors.module.scss';
+
 @keyframes AnimationPositionLeft {
   0% {
     opacity: 0;
@@ -45,8 +47,26 @@
     opacity: 0;
     transform: translateX(100%);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0%);
+  }
+}
+
+@keyframes Pulse {
+  0% {
+    transform: scale(.95);
+    box-shadow: 0 0 0 0 $color-emerald;
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px;
+  }
+
+  100% {
+    transform: scale(.95);
+    box-shadow: 0 0 0 0;
   }
 }
