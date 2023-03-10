@@ -1,11 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
-import { HomePageProps } from "../../interfaces/homePage";
+import { HomePageProps, IconSerealized } from "../../interfaces/homePage";
 import PageTemplate from "../../templates/PageTemplate";
 import styles from "./styles.module.scss";
 
-function HomePage({ image, presentation }: HomePageProps) {
+function HomePage({ homePageData }: HomePageProps) {
+  const { presentation, socialIcons, image } = homePageData;
   return (
     <PageTemplate>
       <Head>
@@ -24,6 +26,13 @@ function HomePage({ image, presentation }: HomePageProps) {
         </div>
         <div className={styles.TextContainer}>
           <p>{presentation}</p>
+          <div className={styles.SocialContainer}>
+            {socialIcons?.map((icon: IconSerealized, index: number) => (
+              <Link key={index} href={icon.link} target='_blank' rel='noreferrer'>
+                <img src={icon.iconImg} alt={icon.name} />
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </PageTemplate>
