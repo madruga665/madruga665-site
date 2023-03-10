@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Card from "../../components/Card";
+import { Experience } from "../../interfaces/experiencesPage";
 import PageTemplate from "../../templates/PageTemplate";
 import styles from "./styles.module.scss";
 
@@ -10,7 +11,7 @@ function ExperiencesPage({ experiencePageData }: any) {
         <title>Luciano Amâncio - Sobre</title>
       </Head>
       <div className={styles.Container}>
-        {experiencePageData.map((experience: any, index: number) => (
+        {experiencePageData.map((experience: Experience, index: number) => (
           <div className={styles.ExperienceSection} style={index % 2 === 0 ? {flexDirection: 'row-reverse'}: {}}>
             <Card
               key={index}

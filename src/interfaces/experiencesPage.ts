@@ -33,7 +33,7 @@ export interface ExperiencesPageData {
   results: Array<Result>;
 }
 
-export interface TESTE {
+export interface Experience {
   companyImg: string;
   role: string;
   companyName: string;
@@ -43,5 +43,5 @@ export interface TESTE {
 }
 
 export interface ExperiencesPageProps {
-  experiencePageData: Array<TESTE>;
+  experiencePageData: Array<Experience>;
 }
