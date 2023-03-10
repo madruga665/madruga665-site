@@ -1,4 +1,5 @@
 import Head from "next/head";
+
 import Card from "../../components/Card";
 import { Experience } from "../../interfaces/experiencesPage";
 import PageTemplate from "../../templates/PageTemplate";
@@ -8,7 +9,7 @@ function ExperiencesPage({ experiencePageData }: any) {
   return (
     <PageTemplate>
       <Head>
-        <title>Luciano Amâncio - Sobre</title>
+        <title>Luciano Amâncio - Experiências</title>
       </Head>
       <div className={styles.Container}>
         {experiencePageData.map((experience: Experience, index: number) => (
