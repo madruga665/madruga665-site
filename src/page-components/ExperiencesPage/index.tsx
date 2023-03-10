@@ -15,7 +15,7 @@ function ExperiencesPage({ experiencePageData }: ExperiencesPageProps) {
         {experiencePageData.map((experience: Experience, index: number) => (
           <div className={styles.ExperienceSection} style={index % 2 === 0 ? {}: {flexDirection: 'row-reverse'}}>
             <Card
-              key={index}
+              key={experience.companyName}
               img={experience.companyImg}
               headerTitle={experience.role}
               headerSubtitle={experience.companyName}

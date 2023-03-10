@@ -1,15 +1,21 @@
 import Head from "next/head";
-import NewsSoon from "../../components/NewsSoon";
-import PageTemplate from "../../templates/PageTemplate";
 
-function ProjectsPage() {
-  const title = "Logo mais vai ter coisa aqui!";
+import ProjectCard from "../../components/ProjectCard";
+import { ProjectSerealized } from "../../interfaces/projectsPage";
+import PageTemplate from "../../templates/PageTemplate";
+import styles from "./styles.module.scss";
+
+function ProjectsPage({ projects }: { projects: Array<ProjectSerealized> }) {
   return (
     <PageTemplate>
       <Head>
         <title>Luciano Amâncio - Projetos</title>
       </Head>
-      <NewsSoon title={title} />
+      <div className={styles.Container}>
+        {projects.map((project: ProjectSerealized) => (
+          <ProjectCard key={project.name} {...project} />
+        ))}
+      </div>
     </PageTemplate>
   );
 }
