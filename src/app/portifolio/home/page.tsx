@@ -6,6 +6,10 @@ import { HomePageProps, IconSerealized } from "@/interfaces/homePage";
 
 import styles from "./styles.module.scss";
 
+export const metadata = {
+  title: "Luciano Amancio - Home",
+};
+
 async function Home() {
   const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/home`);
   const homePageProps: HomePageProps = await response.data;
