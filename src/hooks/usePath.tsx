@@ -1,7 +1,7 @@
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 function usePath() {
-  const { pathname } = useRouter();
+  const pathname = usePathname();
 
   function isCurrentPage(link: String) {
     return pathname === link;
