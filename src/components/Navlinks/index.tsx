@@ -1,6 +1,9 @@
+"use client";
 import Link from "next/link";
+
 import EnumHelper from "../../helpers/enumHelper";
 import useHighlightPath from "../../hooks/usePath";
+
 import styles from "./styles.module.scss";
 
 interface ILink {
@@ -14,13 +17,11 @@ function NavLinks() {
 
   function buildLinks(link: ILink, index: number) {
     return (
-      <li
-        className={styles.StyledListItem}
-        style={isCurrentPage(link.link) ? { fontWeight: 800 } : { fontWeight: 300 }}
-        key={index}
-      >
-        <Link href={link.link}>{link.title}</Link>
-      </li>
+      <div className={isCurrentPage(link.link) ? styles.LinkContainerActive : styles.LinkContainer}>
+        <li className={styles.StyledListItem} key={index}>
+          <Link href={link.link}>{link.title}</Link>
+        </li>
+      </div>
     );
   }
 

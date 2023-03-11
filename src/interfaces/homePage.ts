@@ -57,9 +57,7 @@ export interface SocialLinks {
 }
 
 export interface HomePageProps {
-  homePageData: {
-    presentation: string;
-    image: string;
-    socialIcons: Array<IconSerealized>;
-  };
+  presentation: string;
+  image: string;
+  socialIcons: Array<IconSerealized>;
 }

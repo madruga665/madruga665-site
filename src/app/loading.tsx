@@ -1,24 +1,11 @@
-
-'use client';
-import { Puff } from "react-loader-spinner";
-
 import PageTemplate from "@/templates/PageTemplate";
-import colors from "@/styles/colors.module.scss";
+import Spinner from "@/components/Spinner";
 
 function Loading() {
   return (
     <PageTemplate>
       <div>
-        <Puff
-          height='140'
-          width='140'
-          radius={1}
-          color={colors.colorEmerald}
-          ariaLabel='puff-loading'
-          wrapperStyle={{}}
-          wrapperClass=''
-          visible={true}
-        />
+        <Spinner />
       </div>
     </PageTemplate>
   );
