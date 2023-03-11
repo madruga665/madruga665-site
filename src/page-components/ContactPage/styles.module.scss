@@ -6,7 +6,6 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 100%;
 }
 
 .Form {
@@ -19,8 +18,8 @@
   background-color: $color-midnightBlue;
   border-radius: 15px;
   padding: 1rem;
-  animation: SlideIn 400ms ease-in-out;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  animation: SlideIn 400ms ease-in-out;
 
   $total-elements: 5;
 
@@ -43,7 +42,7 @@
   }
 
   @media only screen and (min-width: 768px) {
-    max-width: 500px;
+    max-width: 450px;
   }
 }
 
