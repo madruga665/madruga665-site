@@ -1,11 +1,12 @@
 import Header from "@/components/Header";
+
 import styles from "./styles.module.scss";
 
 interface IPageTemplateProps {
   children: React.ReactNode;
 }
 
-function PageTemplate({ children }: IPageTemplateProps) {
+function PortifolioLayout({ children }: IPageTemplateProps) {
   return (
     <div className={styles.Container}>
       <Header />
@@ -14,4 +15,4 @@ function PageTemplate({ children }: IPageTemplateProps) {
   );
 }
 
-export default PageTemplate;
+export default PortifolioLayout;

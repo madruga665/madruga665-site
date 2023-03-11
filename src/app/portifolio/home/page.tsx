@@ -10,11 +10,15 @@ export const metadata = {
   title: "Luciano Amancio - Home",
 };
 
-async function Home() {
+async function getHomePageData() {
   const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/home`);
-  const homePageProps: HomePageProps = await response.data;
+  const data = await response.data;
+  return data;
+}
 
-  const { presentation, socialIcons, image } = homePageProps;
+async function Home() {
+  const homePageData = await getHomePageData();
+  const { presentation, socialIcons, image } = homePageData;
 
   return (
     <div className={styles.Container}>

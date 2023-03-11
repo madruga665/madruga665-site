@@ -1,8 +1,11 @@
-import PageTemplate from "@/templates/PageTemplate";
-import React from "react";
+import PortifolioLayout from "@/layouts/PortifolioLayout";
 
-function PortifolioLayout({ children }: { children: React.ReactNode }) {
-  return <PageTemplate>{children}</PageTemplate>;
+function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <PortifolioLayout>
+      {children}
+    </PortifolioLayout>
+  );
 }
 
-export default PortifolioLayout;
+export default Layout;
