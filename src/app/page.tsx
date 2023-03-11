@@ -1,9 +1,11 @@
-import React from "react";
 import IntroductionPage from "../page-components/IntroductionPage";
 
+export const metadata = {
+  title: "A Vida é Bela!!! XD",
+};
 
-function index() {
+function Home() {
   return <IntroductionPage />;
 }
 
-export default index;
+export default Home;
