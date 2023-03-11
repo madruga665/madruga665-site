@@ -1,8 +1,9 @@
 import Head from "next/head";
 
-import Card from "../../components/Card";
-import { Experience, ExperiencesPageProps } from "../../interfaces/experiencesPage";
-import PageTemplate from "../../templates/PageTemplate";
+import { Experience, ExperiencesPageProps } from "@/interfaces/experiencesPage";
+import Card from "@/components/Card";
+import PageTemplate from "@/templates/PageTemplate";
+
 import styles from "./styles.module.scss";
 
 function ExperiencesPage({ experiencePageData }: ExperiencesPageProps) {
@@ -13,9 +14,12 @@ function ExperiencesPage({ experiencePageData }: ExperiencesPageProps) {
       </Head>
       <div className={styles.Container}>
         {experiencePageData.map((experience: Experience, index: number) => (
-          <div className={styles.ExperienceSection} style={index % 2 === 0 ? {}: {flexDirection: 'row-reverse'}}>
+          <div
+            className={styles.ExperienceSection}
+            key={experience.companyName}
+            style={index % 2 === 0 ? {} : { flexDirection: "row-reverse" }}
+          >
             <Card
-              key={experience.companyName}
               img={experience.companyImg}
               headerTitle={experience.role}
               headerSubtitle={experience.companyName}
