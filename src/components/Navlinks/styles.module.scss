@@ -16,7 +16,7 @@
   }
 
   @media only screen and (min-width: 768px) {
-    width: 22rem;
+    width: 25rem;
     height: 100%;
     flex-direction: column;
     justify-content: flex-end;
@@ -35,17 +35,19 @@
   align-items: center;
   justify-content: center;
   border-radius: 5px 5px 0 0;
-  padding: 0 0.5rem;
   font-weight: 300;
+  padding: 0 10px;
+  width: 100%;
 
   @media only screen and (min-width: 768px) {
+    margin: 5px;
     height: 100%;
   }
 }
 
 .LinkContainerActive {
   @extend .LinkContainer;
-  transition: background-color 300ms ease-in-out;
+  transition: background-color 500ms ease-in-out;
   background-color: $color-emerald;
   border-bottom: 2px solid $color-clouds;
   font-weight: 500;
