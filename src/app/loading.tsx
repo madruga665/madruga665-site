@@ -4,9 +4,7 @@ import Spinner from "@/components/Spinner";
 function Loading() {
   return (
     <PageTemplate>
-      <div>
-        <Spinner />
-      </div>
+      <Spinner />
     </PageTemplate>
   );
 }

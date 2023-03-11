@@ -2,7 +2,9 @@ import styles from './styles.module.scss'
 
 function Spinner() {
   return (
-    <div className={styles.Loader}></div>
+    <div className={styles.Container}>
+      <div className={styles.Loader}></div>
+    </div>
   )
 }
 

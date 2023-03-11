@@ -14,23 +14,14 @@ function ExperiencesPage({ experiencePageData }: ExperiencesPageProps) {
       </Head>
       <div className={styles.Container}>
         {experiencePageData.map((experience: Experience, index: number) => (
-          <div
-            className={styles.ExperienceSection}
+          <Card
             key={experience.companyName}
-            style={index % 2 === 0 ? {} : { flexDirection: "row-reverse" }}
-          >
-            <Card
-              img={experience.companyImg}
-              headerTitle={experience.role}
-              headerSubtitle={experience.companyName}
-              headerDate={experience.period}
-              description={experience.description}
-            />
-            <div className={styles.Timeline}>
-              <div className={styles.TimelineDot}></div>
-            </div>
-            <p className={styles.Year}>{experience.year}</p>
-          </div>
+            img={experience.companyImg}
+            headerTitle={experience.role}
+            headerSubtitle={experience.companyName}
+            headerDate={experience.period}
+            description={experience.description}
+          />
         ))}
       </div>
     </PageTemplate>
