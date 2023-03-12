@@ -1,5 +1,5 @@
-import { ExperiencesPageData } from "../../interfaces/experiencesPage";
-import { HomePageData, Icon, IconSerealized } from "../../interfaces/homePage";
+import { ExperiencesPageData } from "@/interfaces/experiencesPage";
+import { HomePageData, Icon, IconSerealized } from "@/interfaces/homePage";
 
 function serealizeSocialIcons(homePageData: HomePageData): Array<IconSerealized> {
   const icons = homePageData.properties.social_icons.files;

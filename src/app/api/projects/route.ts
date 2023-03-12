@@ -1,9 +1,10 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { Project, ProjectSerealized } from "../../interfaces/projectsPage";
+import { NextResponse } from "next/server";
 
-import notionClient from "../../lib/notion-client";
+import { Project, ProjectSerealized } from "@/interfaces/projectsPage";
 
-async function projectsPageHandler(req: NextApiRequest, res: NextApiResponse) {
+import notionClient from "@/lib/notion-client";
+
+export async function GET() {
   try {
     const projectsPageData = await notionClient.databases.query({
       database_id: process.env.NOTION_PROJECTS_DATABASE_ID,
@@ -28,11 +29,9 @@ async function projectsPageHandler(req: NextApiRequest, res: NextApiResponse) {
       return !checkObjectisUndefined;
     });
 
-    res.status(200).json(filterUndefinedObjects);
+    return NextResponse.json(filterUndefinedObjects);
   } catch (error) {
     console.log(error);
     throw error;
   }
 }
-
-export default projectsPageHandler;

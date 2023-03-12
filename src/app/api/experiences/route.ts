@@ -1,10 +1,10 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextResponse } from "next/server";
 
-import { ExperiencesPageData } from "../../interfaces/experiencesPage";
-import notionClient from "../../lib/notion-client";
-import NotionService from "./notion.service";
+import { ExperiencesPageData } from "@/interfaces/experiencesPage";
+import notionClient from "@/lib/notion-client";
+import NotionService from "../notion.service";
 
-async function experiencesPageHandler(req: NextApiRequest, res: NextApiResponse) {
+export async function GET() {
   try {
     const experiencesPageData: ExperiencesPageData = await notionClient.databases.query({
       database_id: process.env.NOTION_EXPERIENCE_DATABASE_ID,
@@ -18,11 +18,9 @@ async function experiencesPageHandler(req: NextApiRequest, res: NextApiResponse)
 
     const data = NotionService.getExperiencePageData(experiencesPageData);
 
-    res.status(200).json(data);
+    return NextResponse.json(data);
   } catch (error) {
     console.log(error);
     throw error;
   }
 }
-
-export default experiencesPageHandler;

@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
 
-import { HomePageProps, IconSerealized } from "@/interfaces/homePage";
+import { IconSerealized } from "@/interfaces/homePage";
 
 import styles from "./styles.module.scss";
 

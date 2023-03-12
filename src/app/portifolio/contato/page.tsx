@@ -1,3 +1,4 @@
+'use client';
 import axios from "axios";
 import { useForm } from "react-hook-form";
 
@@ -11,9 +12,9 @@ interface formData {
   message: string;
 }
 
-export const metadata = {
-  title: "Luciano Amâncio - Contato",
-};
+// export const metadata = {
+//   title: "Luciano Amâncio - Contato",
+// };
 
 function ContactPage() {
   const { register, handleSubmit, formState, reset } = useForm<formData>({
