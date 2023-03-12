@@ -10,9 +10,15 @@ export const metadata = {
   description: "Projetos desenvolvidos por Luciano Amâncio",
 };
 
-async function Projects() {
+async function getProjectsPageData(): Promise<ProjectSerealized[]> {
   const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/projects`);
-  const projects = await response.data;
+  const data = await response.data;
+
+  return data;
+}
+
+async function Projects() {
+  const projects = await getProjectsPageData();
 
   return (
     <div className={styles.Container}>
