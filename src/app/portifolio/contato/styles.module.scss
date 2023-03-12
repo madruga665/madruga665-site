@@ -6,6 +6,10 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+
+  @media only screen and (min-width: 768px) {
+    margin-top: 1rem;
+  }
 }
 
 .Form {
@@ -13,8 +17,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: clamp(90%, 450px, 450px);
+  height: clamp(90%, 540px, 540px);
+
   gap: 15px;
-  width: 95%;
   background-color: $color-midnightBlue;
   border-radius: 15px;
   padding: 1rem;
@@ -35,14 +41,12 @@
   }
 
   .Text {
+    font-size: 1rem;
+    font-weight: 300;
     color: $color-clouds;
     max-width: 500px;
     text-align: center;
     margin-bottom: 0.5rem;
-  }
-
-  @media only screen and (min-width: 768px) {
-    max-width: 450px;
   }
 }
 
