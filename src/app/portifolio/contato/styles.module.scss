@@ -1,0 +1,97 @@
+@import "@/styles/colors.module.scss";
+@import "@/styles/animations.scss";
+
+.Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.Form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+  width: 95%;
+  background-color: $color-midnightBlue;
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  animation: SlideIn 400ms ease-in-out;
+
+  $total-elements: 5;
+
+  @for $i from 1 through $total-elements {
+    $delay: ($i + 1) * 0.2s;
+
+    > :nth-child(#{$i}) {
+      opacity: 0;
+      animation: SlideIn 400ms ease-in-out;
+      animation-fill-mode: both;
+      animation-delay: $delay;
+    }
+  }
+
+  .Text {
+    color: $color-clouds;
+    max-width: 500px;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  @media only screen and (min-width: 768px) {
+    max-width: 450px;
+  }
+}
+
+.FormControl {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  gap: 0.2rem;
+
+  label {
+    font-weight: 500;
+    color: $color-clouds;
+  }
+
+  .ErrorText {
+    color: $color-alizarin;
+  }
+
+  textarea,
+  input {
+    border: none;
+  }
+
+  textarea:focus,
+  input:focus {
+    outline: none;
+  }
+
+  input {
+    border-radius: 8px;
+    height: 40px;
+    padding: 0 25px;
+  }
+
+  textarea {
+    height: 90px;
+    resize: none;
+    border-radius: 10px;
+    padding: 20px;
+
+    @media only screen and (min-width: 768px) {
+      height: 200px;
+    }
+  }
+}
+
+.ButtonContainer {
+  width: 100%;
+  height: 40px;
+  max-width: 500px;
+}
