@@ -37,7 +37,7 @@ async function Home() {
         <div className={styles.SocialContainer}>
           {socialIcons?.map((icon: IconSerealized, index: number) => (
             <Link key={index} href={icon.link} target='_blank' rel='noreferrer'>
-              <img src={icon.iconImg} alt={icon.name} />
+              <Image src={icon.iconImg} alt={icon.name} width={200} height={200} />
             </Link>
           ))}
         </div>
