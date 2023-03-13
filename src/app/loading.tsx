@@ -1,11 +1,11 @@
-import PageTemplate from "@/templates/PageTemplate";
+import PortifolioLayout from "@/layouts/PortifolioLayout";
 import Spinner from "@/components/Spinner";
 
 function Loading() {
   return (
-    <PageTemplate>
+    <PortifolioLayout>
       <Spinner />
-    </PageTemplate>
+    </PortifolioLayout>
   );
 }
 
