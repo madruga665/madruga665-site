@@ -6,6 +6,7 @@ const nextConfig = {
   },
   images: {
     dangerouslyAllowSVG: true,
+    domains: ['madruga665.vercel.app'],
     remotePatterns: [
       {
         protocol: "https",
