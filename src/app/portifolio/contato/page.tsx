@@ -3,11 +3,13 @@ import axios from "axios";
 import Head from "next/head";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 import Button from "@/components/Button";
 
+import "react-toastify/dist/ReactToastify.minimal.css";
 import styles from "./styles.module.scss";
-
+import EnumHelper from "@/helpers/enumHelper";
 
 interface formData {
   name: string;
@@ -16,14 +18,22 @@ interface formData {
 }
 
 async function onSubmit(data: formData, refresh: () => void) {
-  await axios.post("/api/contact", data);
-  alert("Mensagem enviada com sucesso!");
+  const enumHelper = new EnumHelper();
+
+  try {
+    await axios.post("/api/contact", data);
+    toast.success(enumHelper.toastMessages.success);
+  } catch (error) {
+    toast.error(enumHelper.toastMessages.error);
+    console.log(error);
+    throw error;
+  }
 
   refresh();
 }
 
 function ContactPage() {
-  const { register, handleSubmit, formState } = useForm<formData>({
+  const { register, handleSubmit, formState, reset } = useForm<formData>({
     defaultValues: {
       name: "",
       email: "",
@@ -33,7 +43,6 @@ function ContactPage() {
   const { errors, isSubmitting } = formState;
   const router = useRouter();
 
-
   return (
     <div className={styles.Container}>
       <Head>
@@ -41,7 +50,12 @@ function ContactPage() {
       </Head>
       <form
         className={styles.Form}
-        onSubmit={handleSubmit((data) => onSubmit(data, () => router.refresh()))}
+        onSubmit={handleSubmit((data) =>
+          onSubmit(data, () => {
+            reset();
+            router.refresh();
+          })
+        )}
       >
         <p className={styles.Text}>
           Caso queira entrar em contado ou deixar algum feedback fique à vontade para me mandar uma
