@@ -1,10 +1,13 @@
-'use client';
+"use client";
 import axios from "axios";
+import Head from "next/head";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 
 import Button from "@/components/Button";
 
 import styles from "./styles.module.scss";
+
 
 interface formData {
   name: string;
@@ -12,12 +15,15 @@ interface formData {
   message: string;
 }
 
-// export const metadata = {
-//   title: "Luciano Amâncio - Contato",
-// };
+async function onSubmit(data: formData, refresh: () => void) {
+  await axios.post("/api/contact", data);
+  alert("Mensagem enviada com sucesso!");
+
+  refresh();
+}
 
 function ContactPage() {
-  const { register, handleSubmit, formState, reset } = useForm<formData>({
+  const { register, handleSubmit, formState } = useForm<formData>({
     defaultValues: {
       name: "",
       email: "",
@@ -25,16 +31,18 @@ function ContactPage() {
     },
   });
   const { errors, isSubmitting } = formState;
+  const router = useRouter();
 
-  async function onSubmit(data: formData) {
-    reset();
-    alert("mensagem enviada com sucesso");
-    await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/contact`, data);
-  }
 
   return (
     <div className={styles.Container}>
-      <form className={styles.Form} onSubmit={handleSubmit(onSubmit)}>
+      <Head>
+        <title>Luciano Amâncio - Contato</title>
+      </Head>
+      <form
+        className={styles.Form}
+        onSubmit={handleSubmit((data) => onSubmit(data, () => router.refresh()))}
+      >
         <p className={styles.Text}>
           Caso queira entrar em contado ou deixar algum feedback fique à vontade para me mandar uma
           mensagem.

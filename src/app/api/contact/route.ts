@@ -1,17 +1,10 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import notionClient from "../../lib/notion-client";
+import notionClient from "@/lib/notion-client";
+import { NextResponse } from "next/server";
 
-export const config = {
-  api: {
-    bodyParser: {
-      sizeLimit: "1mb",
-    },
-  },
-};
-
-export default async function contactPageHandler(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(req: Request) {
   try {
-    const { name, email, message } = req.body;
+    const body = await req.json();
+    const { name, email, message } = body;
 
     await notionClient.pages.create({
       parent: {
@@ -40,6 +33,10 @@ export default async function contactPageHandler(req: NextApiRequest, res: NextA
           ],
         },
       },
+    });
+
+    return new NextResponse("Success", {
+      status: 201,
     });
   } catch (error) {
     console.log(error);
