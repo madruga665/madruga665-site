@@ -23,13 +23,12 @@ async function Home() {
   return (
     <div className={styles.Container}>
       <div className={styles.ImageContainer}>
-        <Image
+        <img
           width={350}
           height={350}
           className={styles["About-image"]}
           src={image}
           alt='Luciano Amancio'
-          priority
         />
       </div>
       <div className={styles.TextContainer}>
@@ -37,7 +36,7 @@ async function Home() {
         <div className={styles.SocialContainer}>
           {socialIcons?.map((icon: IconSerealized, index: number) => (
             <Link key={index} href={icon.link} target='_blank' rel='noreferrer'>
-              <Image src={icon.iconImg} alt={icon.name} width={200} height={200} />
+              <img src={icon.iconImg} alt={icon.name} width={200} height={200} />
             </Link>
           ))}
         </div>
