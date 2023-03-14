@@ -10,7 +10,7 @@ interface Files {
 
 export interface Icon {
   name: string;
-  file: {
+  external: {
     url: string;
   };
   link: string;

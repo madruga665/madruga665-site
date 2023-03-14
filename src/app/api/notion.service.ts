@@ -26,7 +26,7 @@ function serealizeSocialIcons(homePageData: HomePageData): Array<IconSerealized>
     const socialIcon = {
       name: icon.name,
       link: icon.link,
-      iconImg: icon.file.url,
+      iconImg: icon.external.url,
     };
 
     return socialIcon;
