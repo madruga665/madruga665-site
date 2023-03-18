@@ -5,6 +5,7 @@ import axios from "axios";
 import { IconSerealized } from "@/interfaces/homePage";
 
 import styles from "./styles.module.scss";
+import WindowCard from "@/components/WindowCard";
 
 export const metadata = {
   title: "Luciano Amancio - Home",
@@ -21,22 +22,24 @@ async function Home() {
   const { presentation, socialIcons, image } = homePageData;
 
   return (
-    <div className={styles.Container}>
-      <div className={styles.ImageContainer}>
+    <div className={styles.container}>
+      <div className={styles.imageContainer}>
         <Image
           width={350}
           height={350}
-          className={styles["About-image"]}
+          className={styles["about-image"]}
           src={image}
           alt='Luciano Amancio'
           priority
         />
       </div>
-      <div className={styles.TextContainer}>
-        <p>{presentation}</p>
-        <div className={styles.SocialContainer}>
+      <div className={styles.textContainer}>
+        <WindowCard>
+          <p>{presentation}</p>
+        </WindowCard>
+        <div className={styles.socialContainer}>
           {socialIcons?.map((icon: IconSerealized, index: number) => (
-            <Link key={index} href={icon.link} target='_blank' rel='noreferrer'>
+            <Link key={icon.name} href={icon.link} target='_blank' rel='noreferrer'>
               <Image src={icon.iconImg} alt={icon.name} width={200} height={200} />
             </Link>
           ))}

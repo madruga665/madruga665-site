@@ -1,0 +1,43 @@
+@import '../../styles/colors.module.scss';
+
+.card {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: $color-midnightBlue;
+  border-radius: 8px;
+  z-index: 1;
+  padding: 1rem 1rem 2rem 1rem;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.tools {
+  display: flex;
+  align-items: center;
+  padding: 9px;
+}
+
+.circle {
+  padding: 0 4px;
+}
+
+.box {
+  display: inline-block;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  padding: 1px;
+  border-radius: 50%;
+}
+
+.red {
+  background-color: $color-alizarin;
+}
+
+.yellow {
+  background-color: $color-sunFlower;
+}
+
+.green {
+  background-color: $color-emerald;
+}
