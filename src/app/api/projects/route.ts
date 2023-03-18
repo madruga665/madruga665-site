@@ -17,7 +17,7 @@ export async function GET() {
         tags: project.properties.tags.multi_select.map((tag: any) => tag.name),
         githubRepository: project.properties.github_repository.url,
         production: project.properties.production.url,
-        image: project.properties.image.files[0]?.file.url,
+        image: project.properties.image.files[0]?.external.url,
       };
     });
 

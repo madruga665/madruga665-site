@@ -22,8 +22,9 @@ export interface Project {
       url: string;
     };
     image: {
+      name: string;
       files: Array<{
-        file: {
+        external: {
           url: string;
         };
       }>;
