@@ -4,6 +4,7 @@ import { ProjectSerealized } from "@/interfaces/projectsPage";
 import ProjectCard from "@/components/ProjectCard";
 
 import styles from "./styles.module.scss";
+import WindowCard from "@/components/WindowCard";
 
 export const metadata = {
   title: "Luciano Amâncio - Projetos",
@@ -23,7 +24,9 @@ async function Projects() {
   return (
     <div className={styles.Container}>
       {projects.map((project: ProjectSerealized) => (
-        <ProjectCard key={project.name} {...project} />
+        <WindowCard key={project.name}>
+          <ProjectCard {...project} />
+        </WindowCard>
       ))}
     </div>
   );

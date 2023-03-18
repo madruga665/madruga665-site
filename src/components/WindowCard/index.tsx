@@ -15,7 +15,7 @@ function WindowCard({ children }: any) {
           <span className={`${styles.green} ${styles.box}`}></span>
         </div>
       </div>
-      <div>{children}</div>
+      <div className={styles.content}>{children}</div>
     </div>
   );
 }
