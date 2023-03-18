@@ -1,50 +1,4 @@
 import { ExperiencesPageData } from "@/interfaces/experiencesPage";
-import { HomePageData, Icon, IconSerealized } from "@/interfaces/homePage";
-
-function serealizeSocialIcons(homePageData: HomePageData): Array<IconSerealized> {
-  const icons = homePageData.properties.social_icons.files;
-  const socialLinks = {
-    linkedin: homePageData.properties.linkedin.url,
-    github: homePageData.properties.github.url,
-    instagram: homePageData.properties.instagram.url,
-    facebook: homePageData.properties.facebook.url,
-  };
-  const socialIcons = icons.map((icon: Icon) => {
-    if (icon.name.includes("linkedin")) {
-      icon.link = socialLinks.linkedin;
-    }
-    if (icon.name.includes("github")) {
-      icon.link = socialLinks.github;
-    }
-    if (icon.name.includes("instagram")) {
-      icon.link = socialLinks.instagram;
-    }
-    if (icon.name.includes("facebook")) {
-      icon.link = socialLinks.facebook;
-    }
-
-    const socialIcon = {
-      name: icon.name,
-      link: icon.link,
-      iconImg: icon.external.url,
-    };
-
-    return socialIcon;
-  });
-
-  return socialIcons;
-}
-
-function getHomePageData(homePageData: HomePageData) {
-  const icons = serealizeSocialIcons(homePageData);
-  const data = {
-    presentation: homePageData.properties.description.rich_text[0].text.content,
-    image: homePageData.properties.image.files[0].name,
-    socialIcons: icons,
-  };
-
-  return data;
-}
 
 function getExperiencePageData(experiencesPageData: ExperiencesPageData) {
   const response = experiencesPageData.results.map((result: any) => {
@@ -69,7 +23,6 @@ function getExperiencePageData(experiencesPageData: ExperiencesPageData) {
 }
 
 const NotionService = {
-  getHomePageData,
   getExperiencePageData,
 };
 

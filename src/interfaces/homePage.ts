@@ -22,7 +22,7 @@ export interface IconSerealized {
   iconImg: string;
 }
 
-export interface HomePageData {
+export interface NotionFetchHomePageData {
   properties: {
     description: {
       rich_text: Array<RichText>;
@@ -56,7 +56,7 @@ export interface SocialLinks {
   facebook: string;
 }
 
-export interface HomePageProps {
+export interface HomePageData {
   presentation: string;
   image: string;
   socialIcons: Array<IconSerealized>;

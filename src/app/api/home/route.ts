@@ -1,21 +1,19 @@
 import { NextResponse } from "next/server";
 
-import { HomePageData } from "@/interfaces/homePage";
-import notionClient from "@/lib/notion-client";
-import NotionService from "../notion.service";
+import { HomeService } from "./service/home-service";
+import { HomeController } from "./controller/home-controller";
+import { HomeRepository } from "./repository/home-repository";
 
 export async function GET() {
   try {
-    const homePageData: HomePageData = await notionClient.pages.retrieve({
-      database_id: process.env.NOTION_DATABASE_ID,
-      page_id: process.env.NOTION_HOME_PAGE_ID,
-    });
-
-    const data = NotionService.getHomePageData(homePageData);
+    const homeRepository = new HomeRepository();
+    const homeService = new HomeService(homeRepository);
+    const homeController = new HomeController(homeService);
+    const data = await homeController.getHomePageData();
 
     return NextResponse.json(data);
   } catch (error) {
     console.log(error);
-    throw error;
+    NextResponse.error();
   }
 }
