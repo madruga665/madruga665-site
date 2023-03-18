@@ -22,7 +22,7 @@ async function Projects() {
   const projects = await getProjectsPageData();
 
   return (
-    <div className={styles.Container}>
+    <div className={styles.container}>
       {projects.map((project: ProjectSerealized) => (
         <WindowCard key={project.name}>
           <ProjectCard {...project} />

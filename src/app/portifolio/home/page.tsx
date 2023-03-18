@@ -33,7 +33,7 @@ async function Home() {
           priority
         />
       </div>
-      <div className={styles.textContainer}>
+      <div className={styles.presentationContainer}>
         <WindowCard>
           <p>{presentation}</p>
         </WindowCard>
