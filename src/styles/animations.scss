@@ -87,3 +87,18 @@
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
   }
 }
+
+.enterPageAnimation {
+  $total-elements: 100;
+
+  @for $i from 1 through $total-elements {
+    $delay: ($i + 1) * 0.2s;
+
+    > :nth-child(#{$i}) {
+      opacity: 0;
+      animation: SlideIn 400ms ease-in-out;
+      animation-fill-mode: both;
+      animation-delay: $delay;
+    }
+  }
+}
