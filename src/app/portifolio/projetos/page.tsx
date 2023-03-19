@@ -12,8 +12,13 @@ export const metadata = {
 };
 
 async function getProjectsPageData(): Promise<ProjectSerealized[]> {
-  const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/projects`);
-  const data = await response.data;
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/projects`, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    next: { revalidate: 10 },
+  });
+  const data = await response.json();
 
   return data;
 }
