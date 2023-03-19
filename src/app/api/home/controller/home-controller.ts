@@ -9,13 +9,8 @@ export class HomeController implements HomeControllerInterface {
   }
 
   async getHomePageData() {
-    try {
-      const data = this.homeService.getHomePageData();
+    const data = await this.homeService.getHomePageData();
 
-      return data;
-    } catch (error) {
-      console.log(error);
-      throw error;
-    }
+    return data;
   }
 }
