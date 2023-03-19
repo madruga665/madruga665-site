@@ -32,6 +32,6 @@ export async function GET() {
     return NextResponse.json(filterUndefinedObjects);
   } catch (error) {
     console.log(error);
-    throw error;
+    NextResponse.error();
   }
 }

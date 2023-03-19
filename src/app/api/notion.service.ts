@@ -3,7 +3,7 @@ import { ExperiencesPageData } from "@/interfaces/experiencesPage";
 function getExperiencePageData(experiencesPageData: ExperiencesPageData) {
   const response = experiencesPageData.results.map((result: any) => {
     return {
-      companyImg: result.properties.company_img.files[0]?.file.url,
+      companyImg: result.properties.company_img.files[0].external?.url,
       role: result.properties.role.title[0]?.plain_text,
       companyName: result.properties.company_name.rich_text[0]?.plain_text,
       period: result.properties.period.rich_text[0]?.plain_text,
