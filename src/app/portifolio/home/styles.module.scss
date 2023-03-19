@@ -61,6 +61,7 @@
 }
 
 .socialContainer {
+  @extend .enterPageAnimation;
   display: flex;
   width: 100%;
   align-items: center;

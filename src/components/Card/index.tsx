@@ -12,7 +12,7 @@ interface CardProps {
 
 function Card({ img, headerTitle, headerSubtitle, headerDate, description }: CardProps) {
   return (
-    <div className={styles.Card}>
+    <div className={styles.card}>
       <header>
         <Image width={80} height={80} src={img} alt={headerSubtitle} priority />
         <div>
@@ -21,7 +21,7 @@ function Card({ img, headerTitle, headerSubtitle, headerDate, description }: Car
           <p>{headerDate}</p>
         </div>
       </header>
-      <div className={styles.Content}>
+      <div className={styles.description}>
         <p>{description}</p>
       </div>
     </div>
