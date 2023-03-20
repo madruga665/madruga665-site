@@ -1,4 +1,6 @@
 import { Poppins } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+
 import "../styles/global.scss";
 
 const poppins = Poppins({
@@ -10,6 +12,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
       <body className={poppins.className}>{children}</body>
+      <Analytics />
     </html>
   );
 }
