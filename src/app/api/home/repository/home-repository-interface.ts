@@ -1,5 +1,7 @@
 import { NotionFetchHomePageData } from "@/interfaces/homePage";
 
-export interface HomeRepositoryInterface {
+interface HomeRepositoryInterface {
   getHomePageData(): Promise<NotionFetchHomePageData>;
 }
+
+export default HomeRepositoryInterface;

@@ -1,8 +1,8 @@
-import { HomePageData, Icon, IconSerealized, NotionFetchHomePageData } from "@/interfaces/homePage";
-import { HomeRepositoryInterface } from "../repository/home-repository-interface";
-import { HomeServiceInterface } from "./home-service-interface";
+import { Icon, IconSerealized, NotionFetchHomePageData } from "@/interfaces/homePage";
+import HomeRepositoryInterface from "../repository/home-repository-interface";
+import HomeServiceInterface from "./home-service-interface";
 
-export class HomeService implements HomeServiceInterface {
+class HomeService implements HomeServiceInterface {
   homeRepository: HomeRepositoryInterface;
 
   constructor(homeRepository: HomeRepositoryInterface) {
@@ -57,3 +57,5 @@ export class HomeService implements HomeServiceInterface {
     return data;
   }
 }
+
+export default HomeService;

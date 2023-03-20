@@ -1,5 +1,7 @@
-import { HomePageData, IconSerealized, NotionFetchHomePageData } from "@/interfaces/homePage";
+import { HomePageData } from "@/interfaces/homePage";
 
-export interface HomeServiceInterface {
+interface HomeServiceInterface {
   getHomePageData(): Promise<HomePageData>;
 }
+
+export default HomeServiceInterface;

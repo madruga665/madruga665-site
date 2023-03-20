@@ -1,7 +1,7 @@
 import notionClient from "@/lib/notion-client";
-import { HomeRepositoryInterface } from "./home-repository-interface";
+import HomeRepositoryInterface from "./home-repository-interface";
 
-export class HomeRepository implements HomeRepositoryInterface {
+class HomeRepository implements HomeRepositoryInterface {
   async getHomePageData() {
     const homePageData = await notionClient.pages.retrieve({
       database_id: process.env.NOTION_DATABASE_ID,
@@ -11,3 +11,5 @@ export class HomeRepository implements HomeRepositoryInterface {
     return homePageData;
   }
 }
+
+export default HomeRepository;

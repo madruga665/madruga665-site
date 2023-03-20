@@ -1,5 +1,7 @@
 import { HomePageData } from "@/interfaces/homePage";
 
-export interface HomeControllerInterface {
+interface HomeControllerInterface {
   getHomePageData(): Promise<HomePageData>;
 }
+
+export default HomeControllerInterface;

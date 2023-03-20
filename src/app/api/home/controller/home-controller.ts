@@ -1,7 +1,7 @@
-import { HomeServiceInterface } from "../service/home-service-interface";
-import { HomeControllerInterface } from "./home-controller-interface";
+import HomeServiceInterface from "../service/home-service-interface";
+import HomeControllerInterface from "./home-controller-interface";
 
-export class HomeController implements HomeControllerInterface {
+class HomeController implements HomeControllerInterface {
   homeService: HomeServiceInterface;
 
   constructor(homeService: HomeServiceInterface) {
@@ -14,3 +14,5 @@ export class HomeController implements HomeControllerInterface {
     return data;
   }
 }
+
+export default HomeController;
