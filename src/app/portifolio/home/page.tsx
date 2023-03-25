@@ -1,21 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
-import axios from "axios";
 
 import { IconSerealized } from "@/interfaces/homePage";
 
 import styles from "./styles.module.scss";
 import WindowCard from "@/components/WindowCard";
+import { getHomePageData } from "./home.service";
 
 export const metadata = {
-  title: "Luciano Amancio - Home",
+  title: "Luciano Amâncio - Home",
 };
-
-async function getHomePageData() {
-  const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/home`);
-  const data = await response.data;
-  return data;
-}
 
 async function Home() {
   const homePageData = await getHomePageData();
@@ -29,7 +23,7 @@ async function Home() {
           height={350}
           className={styles["about-image"]}
           src={image}
-          alt='Luciano Amancio'
+          alt='Luciano Amâncio'
           priority
         />
       </div>

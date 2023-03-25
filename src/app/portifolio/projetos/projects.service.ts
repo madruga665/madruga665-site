@@ -8,7 +8,7 @@ export async function getProjectsPageData(): Promise<ProjectSerealized[]> {
     },
     cache: "no-store",
   });
-  const data = await response.json();
+  const data: ProjectSerealized[] = await response.json();
 
   return data;
 }
