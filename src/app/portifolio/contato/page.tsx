@@ -1,37 +1,15 @@
 "use client";
-import axios from "axios";
 import Head from "next/head";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { toast } from "react-toastify";
 
 import Button from "@/components/Button";
+import WindowCard from "@/components/WindowCard";
+import { formData } from "@/interfaces/contactPage";
+import { onSubmit } from "./contact.service";
 
 import "react-toastify/dist/ReactToastify.minimal.css";
 import styles from "./styles.module.scss";
-import EnumHelper from "@/helpers/enumHelper";
-import WindowCard from "@/components/WindowCard";
-
-interface formData {
-  name: string;
-  email: string;
-  message: string;
-}
-
-async function onSubmit(data: formData, refresh: () => void) {
-  const enumHelper = new EnumHelper();
-
-  try {
-    await axios.post("/api/contact", data);
-    toast.success(enumHelper.toastMessages.success);
-  } catch (error) {
-    toast.error(enumHelper.toastMessages.error);
-    console.log(error);
-    throw error;
-  }
-
-  refresh();
-}
 
 function ContactPage() {
   const { register, handleSubmit, formState, reset } = useForm<formData>({
