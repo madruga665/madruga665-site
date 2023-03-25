@@ -1,9 +1,9 @@
 import { ProjectSerealized } from "@/interfaces/projectsPage";
+import { getProjectsPageData } from "./projects.service";
 import ProjectCard from "@/components/ProjectCard";
 
 import styles from "./styles.module.scss";
 import WindowCard from "@/components/WindowCard";
-import { getProjectsPageData } from "./projects.service";
 
 export const metadata = {
   title: "Luciano Amâncio - Projetos",

@@ -2,10 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { IconSerealized } from "@/interfaces/homePage";
+import { getHomePageData } from "./home.service";
 
 import styles from "./styles.module.scss";
 import WindowCard from "@/components/WindowCard";
-import { getHomePageData } from "./home.service";
 
 export const metadata = {
   title: "Luciano Amâncio - Home",
