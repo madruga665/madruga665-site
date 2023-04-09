@@ -8,6 +8,12 @@ interface Files {
   name: string;
 }
 
+interface ExternalFiles {
+  external: {
+    url: string;
+  };
+}
+
 export interface Icon {
   name: string;
   external: {
@@ -27,6 +33,9 @@ export interface NotionFetchHomePageData {
     description: {
       rich_text: Array<RichText>;
       presentation: string;
+    };
+    curriculo: {
+      files: Array<ExternalFiles>;
     };
     image: {
       files: Array<Files>;
@@ -60,4 +69,5 @@ export interface HomePageData {
   presentation: string;
   image: string;
   socialIcons: Array<IconSerealized>;
+  curriculo: string;
 }

@@ -51,6 +51,7 @@ class HomeService implements HomeServiceInterface {
     const data = {
       presentation: notionFetchHomePageData.properties.description.rich_text[0].text.content,
       image: notionFetchHomePageData.properties.image.files[0].name,
+      curriculo: notionFetchHomePageData.properties.curriculo.files[0].external.url,
       socialIcons: icons,
     };
 

@@ -1,11 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
+import { FiDownload } from "react-icons/fi";
 
 import { IconSerealized } from "@/interfaces/homePage";
 import { getHomePageData } from "./home.service";
+import LinkButton from "@/components/LinkButton";
+import WindowCard from "@/components/WindowCard";
 
 import styles from "./styles.module.scss";
-import WindowCard from "@/components/WindowCard";
 
 export const metadata = {
   title: "Luciano Amâncio - Home",
@@ -13,7 +15,7 @@ export const metadata = {
 
 async function Home() {
   const homePageData = await getHomePageData();
-  const { presentation, socialIcons, image } = homePageData;
+  const { presentation, socialIcons, image, curriculo } = homePageData;
 
   return (
     <div className={styles.container}>
@@ -28,6 +30,7 @@ async function Home() {
         />
       </div>
       <div className={styles.presentationContainer}>
+          <LinkButton url={curriculo}>Download Curriculo  <FiDownload style={{marginLeft: 10}}/> </LinkButton>
         <WindowCard>
           <p>{presentation}</p>
         </WindowCard>
