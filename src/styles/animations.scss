@@ -57,7 +57,7 @@
 @keyframes Pulse {
   0% {
     transform: scale(.95);
-    box-shadow: 0 0 0 0 $color-primary;
+    box-shadow: 0 0 0 0 $color-emerald;
   }
 
   70% {
@@ -74,7 +74,7 @@
 @keyframes ButtonPulse {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 $color-primary;
+    box-shadow: 0 0 0 0 $color-emerald;
   }
 
   70% {
