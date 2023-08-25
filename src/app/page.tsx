@@ -23,7 +23,7 @@ function Home() {
       </Link>
 
       <Wave
-        fill={colors.colorNephritis}
+        fill={colors.colorPrimaryDark}
         className={styles.CustomWave}
         paused={false}
         options={{
@@ -35,7 +35,7 @@ function Home() {
       />
 
       <Wave
-        fill={colors.colorEmerald}
+        fill={colors.colorPrimary}
         className={styles.CustomWave}
         paused={false}
         options={{

@@ -7,7 +7,12 @@ $color-wetAsphalt: #34495e;
 $color-alizarin: #e74c3c;
 $color-sunFlower: #f1c40f;
 
+$color-primary: #cd2c7a;
+$color-primary-dark: #8f1e54;
+
 :export {
+  colorPrimary: $color-primary;
+  colorPrimaryDark: $color-primary-dark;
   colorEmerald: $color-emerald;
   colorNephritis: $color-nephritis;
   colorClouds: $color-clouds
