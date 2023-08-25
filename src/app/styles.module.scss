@@ -30,7 +30,7 @@
     cursor: pointer;
 
     &:not(:hover) {
-      background-color: $color-emerald;
+      background-color: $color-primary;
       transition: 500ms;
     }
 
