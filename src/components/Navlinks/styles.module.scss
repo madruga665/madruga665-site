@@ -48,10 +48,10 @@
 .LinkContainerActive {
   @extend .LinkContainer;
   transition: background-color 500ms ease-in-out;
-  background-color:$color-primary;
+  background-color: $color-emerald;
   border-bottom: 2px solid $color-clouds;
   font-weight: 500;
-  box-shadow: 0 0 0.4rem $color-primary;
+  box-shadow: 0 0 0.4rem $color-emerald;
 }
 
 .StyledListItem {
@@ -65,7 +65,7 @@
   &::after {
     content: "";
     display: block;
-    border-bottom: 0.2rem solid $color-primary;
+    border-bottom: 0.2rem solid $color-emerald;
     transform: scaleX(0);
     transition: transform 300ms ease-in-out;
   }

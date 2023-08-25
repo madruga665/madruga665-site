@@ -8,7 +8,7 @@
   width: 100%;
   height: 2.2rem;
   border-radius: 0.25rem;
-  background-color: $color-primary;
+  background-color: $color-emerald;
   color: #fff;
   text-decoration: none;
   transition: all 0.5s ease-in-out;
@@ -18,6 +18,6 @@
     transform: scale(1);
     animation: ButtonPulse 1.5s infinite;
     background-color: $color-midnightBlue;
-    color: $color-primary;
+    color: $color-emerald;
   }
 }
