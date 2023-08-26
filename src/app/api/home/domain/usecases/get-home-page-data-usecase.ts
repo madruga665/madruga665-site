@@ -1,17 +1,18 @@
-import { Icon, IconSerealized, NotionFetchHomePageData } from "@/interfaces/homePage";
-import HomeRepositoryInterface from "../repository/home-repository-interface";
-import HomeServiceInterface from "./home-service-interface";
+import Usecase from "@/app/api/core/useCase";
+import { Icon } from "@/interfaces/homePage";
+import HomeRepositoryInterface from "../repositories/home-repository-interface";
+import SerealizedIcon from "../../data/types/serealized-icon";
+import HomePageData from "../../data/types/home-page-data";
+import NotionFetchHomePageData from "../../data/types/notion-fetch-home-page-data";
 
-class HomeService implements HomeServiceInterface {
+class GetHomePageDataUsecase implements Usecase {
   homeRepository: HomeRepositoryInterface;
 
   constructor(homeRepository: HomeRepositoryInterface) {
     this.homeRepository = homeRepository;
   }
 
-  private serealizeSocialIcons(
-    notionFetchHomePageData: NotionFetchHomePageData
-  ): Array<IconSerealized> {
+  private serealizeSocialIcons(notionFetchHomePageData: NotionFetchHomePageData ): SerealizedIcon[] {
     const icons = notionFetchHomePageData.properties.social_icons.files;
     const socialLinks = {
       linkedin: notionFetchHomePageData.properties.linkedin.url,
@@ -45,7 +46,7 @@ class HomeService implements HomeServiceInterface {
     return socialIcons;
   }
 
-  async getHomePageData() {
+  async execute(): Promise<HomePageData> {
     const notionFetchHomePageData = await this.homeRepository.getHomePageData();
     const icons = this.serealizeSocialIcons(notionFetchHomePageData);
     const data = {
@@ -57,6 +58,7 @@ class HomeService implements HomeServiceInterface {
 
     return data;
   }
+  
 }
 
-export default HomeService;
+export default GetHomePageDataUsecase;

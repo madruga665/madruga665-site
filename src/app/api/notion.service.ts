@@ -16,6 +16,7 @@ function getExperiencePageData(experiencesPageData: ExperiencesPageData) {
     const checkObjectisUndefined = Object.values(item).every(
       (value) => value === undefined || value === null
     );
+
     return !checkObjectisUndefined;
   });
 
