@@ -29,10 +29,10 @@ type NotionFetchHomePageData = {
       presentation: string;
     };
     curriculo: {
-      files: Array<ExternalFiles>;
+      files: ExternalFiles[];
     };
     image: {
-      files: Array<Files>;
+      files: Files[];
     };
     instagram: {
       url: string;
@@ -47,7 +47,7 @@ type NotionFetchHomePageData = {
       url: string;
     };
     social_icons: {
-      files: Array<Icon>;
+      files: Icon[];
     };
   };
 }
