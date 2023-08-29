@@ -1,14 +1,14 @@
 import Usecase from "@/app/api/core/useCase";
 import { Icon } from "@/interfaces/homePage";
-import HomeRepositoryInterface from "../repositories/home-repository-interface";
-import SerealizedIcon from "../../data/types/serealized-icon";
-import HomePageData from "../../data/types/home-page-data";
-import NotionFetchHomePageData from "../../data/types/notion-fetch-home-page-data";
+import HomeRepository from "../repositories/home-repository";
+import SerealizedIcon from "../types/serealized-icon";
+import NotionFetchHomePageData from "../types/notion-fetch-home-page-data";
+import HomePage from "../entities/home-page";
 
 class GetHomePageDataUsecase implements Usecase {
-  homeRepository: HomeRepositoryInterface;
+  homeRepository: HomeRepository;
 
-  constructor(homeRepository: HomeRepositoryInterface) {
+  constructor(homeRepository: HomeRepository) {
     this.homeRepository = homeRepository;
   }
 
@@ -46,17 +46,17 @@ class GetHomePageDataUsecase implements Usecase {
     return socialIcons;
   }
 
-  async execute(): Promise<HomePageData> {
+  async execute(): Promise<HomePage> {
     const notionFetchHomePageData = await this.homeRepository.getHomePageData();
     const icons = this.serealizeSocialIcons(notionFetchHomePageData);
-    const data = {
-      presentation: notionFetchHomePageData.properties.description.rich_text[0].text.content,
-      image: notionFetchHomePageData.properties.image.files[0].name,
-      curriculo: notionFetchHomePageData.properties.curriculo.files[0].external.url,
-      socialIcons: icons,
-    };
+    const homePage = new HomePage(
+      notionFetchHomePageData.properties.description.rich_text[0].text.content,
+      notionFetchHomePageData.properties.image.files[0].name,
+      notionFetchHomePageData.properties.curriculo.files[0].external.url,
+      icons,
+    )
 
-    return data;
+    return homePage;
   }
   
 }

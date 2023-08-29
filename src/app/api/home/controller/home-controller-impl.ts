@@ -1,9 +1,8 @@
+import GetHomePageDataUsecase from "../usecases/get-home-page-data-usecase";
+import HomeControllerInterface from "./home-controller";
 
-import GetHomePageDataUsecase from "../../domain/usecases/get-home-page-data-usecase";
-import HomeControllerInterface from "./home-controller-interface";
 
-
-class HomeController implements HomeControllerInterface {
+class HomeControllerImpl implements HomeControllerInterface {
   getHomePageDataUsecase: GetHomePageDataUsecase;
 
   constructor(getHomePageDataUsecase: GetHomePageDataUsecase) {
@@ -15,4 +14,4 @@ class HomeController implements HomeControllerInterface {
   }
 }
 
-export default HomeController;
+export default HomeControllerImpl;

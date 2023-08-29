@@ -1,7 +1,7 @@
 import { Client } from "@notionhq/client";
-import HomeDatasource from "../../infra/datasource/home-datasource";
+import HomeRepository from "./home-repository";
 
-class HomeDatasourceImpl implements HomeDatasource {
+class HomeRepositoryImpl implements HomeRepository {
   client: any;
   dataBaseId: String | undefined;
   pageId: String | undefined;
@@ -22,4 +22,4 @@ class HomeDatasourceImpl implements HomeDatasource {
   }
 }
 
-export default HomeDatasourceImpl;
+export default HomeRepositoryImpl;
