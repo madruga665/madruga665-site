@@ -6,7 +6,6 @@ export async function getHomePageData(): Promise<HomePageData> {
     headers: {
       "Content-Type": "application/json",
     },
-    cache: "no-store",
   });
   const data: HomePageData = await response.json();
 
