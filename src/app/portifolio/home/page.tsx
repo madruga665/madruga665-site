@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { FiDownload } from "react-icons/fi";
@@ -10,9 +9,9 @@ import WindowCard from "@/components/WindowCard";
 
 import styles from "./styles.module.scss";
 
-// export const metadata = {
-//   title: "Luciano Amâncio - Home",
-// };
+export const metadata = {
+  title: "Luciano Amâncio - Home",
+};
 
 async function Home() {
   const homePageData = await getHomePageData();
