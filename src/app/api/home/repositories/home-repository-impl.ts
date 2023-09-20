@@ -3,10 +3,10 @@ import HomeRepository from "./home-repository";
 
 class HomeRepositoryImpl implements HomeRepository {
   client: any;
-  dataBaseId: String | undefined;
-  pageId: String | undefined;
+  dataBaseId: string | undefined;
+  pageId: string | undefined;
 
-  constructor(client: Client, dataBaseId: String | undefined, pageId: String | undefined) {
+  constructor(client: Client, dataBaseId: string | undefined, pageId: string | undefined) {
     this.client = client;
     this.dataBaseId = dataBaseId;
     this.pageId = pageId;
