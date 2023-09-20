@@ -1,4 +1,4 @@
-import GetHomePageDataUsecase from "../usecases/get-home-page-data-usecase";
+import GetHomePageDataUsecase from "../service/home-page-service-impl";
 import HomeControllerInterface from "./home-controller";
 
 
@@ -10,7 +10,7 @@ class HomeControllerImpl implements HomeControllerInterface {
   }
 
   async getHomePageData() {
-    return await this.getHomePageDataUsecase.execute();
+    return await this.getHomePageDataUsecase.getHomePageData();
   }
 }
 
