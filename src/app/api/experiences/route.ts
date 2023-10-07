@@ -4,6 +4,8 @@ import { ExperiencesPageData } from "@/interfaces/experiencesPage";
 import notionClient from "@/lib/notion-client";
 import NotionService from "../notion.service";
 
+export const fetchCache = 'default-no-store';
+
 export async function GET() {
   try {
     const experiencesPageData: ExperiencesPageData = await notionClient.databases.query({

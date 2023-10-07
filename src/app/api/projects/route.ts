@@ -4,6 +4,8 @@ import { Project, ProjectSerealized } from "@/interfaces/projectsPage";
 
 import notionClient from "@/lib/notion-client";
 
+export const fetchCache = 'default-no-store';
+
 export async function GET() {
   try {
     const projectsPageData = await notionClient.databases.query({
