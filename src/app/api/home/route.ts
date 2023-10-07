@@ -4,6 +4,8 @@ import HomeControllerImpl from "./controller/home-controller-impl";
 import NotionAdpter from "./database/notion-adapter";
 import HomeRepositoryImpl from "./repositories/home-repository-impl";
 
+export const fetchCache = 'no-store';
+
 export async function GET() {
   const databaseId = process.env.NOTION_DATABASE_ID;
   const homePageId = process.env.NOTION_HOME_PAGE_ID;
