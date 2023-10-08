@@ -1,5 +1,6 @@
 import { Client } from "@notionhq/client";
-import DatabaseConnection from "@/app/api/core/database-connection";
+import DatabaseConnection from "./database-connection";
+
 
 type NotionAdpterProps = {
   notionToken: string;
