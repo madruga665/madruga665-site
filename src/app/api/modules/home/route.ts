@@ -4,8 +4,7 @@ import HomeControllerImpl from "./adapters/controller/home-controller-impl";
 import HomeRepositoryImpl from "./adapters/repositories/home-repository-impl";
 import GetHomePageDataUsecase from "./application/usecases/get-home-page-data";
 
-
-export const fetchCache = "default-no-store";
+export const fetchCache = "force-no-store";
 
 export async function GET() {
   const databaseId = process.env.NOTION_DATABASE_ID || "";
