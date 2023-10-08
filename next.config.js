@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    appDir: true,
-  },
+  experimental: {},
   images: {
     dangerouslyAllowSVG: true,
     remotePatterns: [
@@ -18,7 +16,7 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "madruga665-site.s3.sa-east-1.amazonaws.com",
-      }
+      },
     ],
   },
 };
