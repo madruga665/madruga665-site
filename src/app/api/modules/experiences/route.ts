@@ -1,10 +1,9 @@
 import { NextResponse } from "next/server";
-
 import { ExperiencesPageData } from "@/interfaces/experiencesPage";
 import notionClient from "@/lib/notion-client";
-import NotionService from "../notion.service";
+import NotionService from "../../core/notion.service";
 
-export const fetchCache = 'default-no-store';
+export const fetchCache = "default-no-store";
 
 export async function GET() {
   try {

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import NotionAdpter from "../core/database/notion-adapter";
+import NotionAdpter from "../../core/database/notion-adapter";
 import HomeControllerImpl from "./adapters/controller/home-controller-impl";
 import HomeRepositoryImpl from "./adapters/repositories/home-repository-impl";
 import GetHomePageDataUsecase from "./application/usecases/get-home-page-data";

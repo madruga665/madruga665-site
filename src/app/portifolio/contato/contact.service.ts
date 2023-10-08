@@ -6,7 +6,7 @@ export async function onSubmit(data: formData, refresh: () => void) {
   const enumHelper = new EnumHelper();
 
   try {
-    await fetch("/api/contact", {
+    await fetch("/api/modules/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
