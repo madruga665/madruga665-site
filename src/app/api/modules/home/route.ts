@@ -1,11 +1,9 @@
-import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import NotionAdpter from "../../core/database/notion-adapter";
 import HomeControllerImpl from "./adapters/controller/home-controller-impl";
 import HomeRepositoryImpl from "./adapters/repositories/home-repository-impl";
 import GetHomePageDataUsecase from "./application/usecases/get-home-page-data";
-
-// export const fetchCache = "force-no-store";
 
 export async function GET(request: NextRequest) {
   const path = request.nextUrl.searchParams.get("path") || "";
