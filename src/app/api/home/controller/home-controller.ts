@@ -1,7 +1,8 @@
-import HomePageData from "../types/home-page-data";
+import HomePageDataDto from "../dtos/home-page-data";
+
 
 interface HomeController {
-  getHomePageData(): Promise<HomePageData>;
+  getHomePageData(): Promise<HomePageDataDto>;
 }
 
 export default HomeController;

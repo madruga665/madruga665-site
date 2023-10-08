@@ -1,21 +1,26 @@
-import { Client } from "@notionhq/client";
 import HomeRepository from "./home-repository";
+
+type HomeRepositoryProps = {
+  client: any;
+  databaseId: string;
+  homePageId: string;
+};
 
 class HomeRepositoryImpl implements HomeRepository {
   client: any;
-  dataBaseId: string | undefined;
-  pageId: string | undefined;
+  databaseId: string;
+  homePageId: string;
 
-  constructor(client: Client, dataBaseId: string | undefined, pageId: string | undefined) {
+  constructor({ client, databaseId, homePageId }: HomeRepositoryProps) {
     this.client = client;
-    this.dataBaseId = dataBaseId;
-    this.pageId = pageId;
+    this.databaseId = databaseId;
+    this.homePageId = homePageId;
   }
 
   async getHomePageData() {
     const homePageData = await this.client.pages.retrieve({
-      database_id: this.dataBaseId,
-      page_id: this.pageId,
+      database_id: this.databaseId,
+      page_id: this.homePageId,
     });
 
     return homePageData;
