@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
-import GetHomePageDataUsecase from "./usecases/get-home-page-data";
-import HomeControllerImpl from "./controller/home-controller-impl";
-import NotionAdpter from "./database/notion-adapter";
-import HomeRepositoryImpl from "./repositories/home-repository-impl";
+import NotionAdpter from "../core/database/notion-adapter";
+import HomeControllerImpl from "./adapters/controller/home-controller-impl";
+import HomeRepositoryImpl from "./adapters/repositories/home-repository-impl";
+import GetHomePageDataUsecase from "./application/usecases/get-home-page-data";
+
 
 export const fetchCache = "default-no-store";
 

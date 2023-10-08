@@ -1,4 +1,5 @@
-import HomePageDataDto from "../dtos/home-page-data";
+import HomePageDataDto from "../../domain/dtos/home-page-data";
+
 
 
 interface HomeController {

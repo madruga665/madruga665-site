@@ -1,4 +1,4 @@
-import NotionFetchHomePageData from "../types/notion-fetch-home-page-data";
+import NotionFetchHomePageData from "../../domain/types/notion-fetch-home-page-data";
 
 interface HomeRepository {
   getHomePageData(): Promise<NotionFetchHomePageData>;

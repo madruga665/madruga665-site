@@ -1,9 +1,9 @@
 import { Client } from "@notionhq/client";
-import DatabaseConnection from "../../core/database-connection";
+import DatabaseConnection from "@/app/api/core/database-connection";
 
 type NotionAdpterProps = {
-  notionToken: string
-}
+  notionToken: string;
+};
 
 class NotionAdpter implements DatabaseConnection {
   notionToken: string;
@@ -11,7 +11,7 @@ class NotionAdpter implements DatabaseConnection {
 
   constructor({ notionToken }: NotionAdpterProps) {
     this.notionToken = notionToken;
-    this.client = new Client({ auth: this.notionToken, });
+    this.client = new Client({ auth: this.notionToken });
   }
 
   connect() {

@@ -1,9 +1,9 @@
+import UseCase from "@/app/api/core/useCase";
 import { Icon } from "@/interfaces/homePage";
-import HomeRepository from "../repositories/home-repository";
-import SerealizedIcon from "../types/serealized-icon";
-import NotionFetchHomePageData from "../types/notion-fetch-home-page-data";
-import UseCase from "../../core/useCase";
-import HomePageDataDto from "../dtos/home-page-data";
+import HomePageDataDto from "../../domain/dtos/home-page-data";
+import HomeRepository from "../../adapters/repositories/home-repository";
+import NotionFetchHomePageData from "../../domain/types/notion-fetch-home-page-data";
+import SerealizedIcon from "../../domain/types/serealized-icon";
 
 class GetHomePageDataUsecase implements UseCase<void, HomePageDataDto> {
   homeRepository: HomeRepository;
