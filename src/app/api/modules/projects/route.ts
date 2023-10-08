@@ -1,12 +1,10 @@
-import { NextRequest, NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
+import { NextResponse } from "next/server";
 import { Project, ProjectSerealized } from "@/interfaces/projectsPage";
 import notionClient from "@/lib/notion-client";
 
-export async function GET(request: NextRequest) {
-  const path = request.nextUrl.pathname
-  revalidatePath(path);
+export const revalidate = true;
 
+export async function GET() {
   try {
     const projectsPageData = await notionClient.databases.query({
       database_id: process.env.NOTION_PROJECTS_DATABASE_ID,

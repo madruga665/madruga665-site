@@ -1,13 +1,11 @@
-import { NextRequest, NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
+import { NextResponse } from "next/server";
 import { ExperiencesPageData } from "@/interfaces/experiencesPage";
 import notionClient from "@/lib/notion-client";
 import NotionService from "../../core/notion.service";
 
-export async function GET(request: NextRequest) {
-  const path = request.nextUrl.pathname
-  revalidatePath(path);
+export const revalidate = true;
 
+export async function GET() {
   try {
     const experiencesPageData: ExperiencesPageData = await notionClient.databases.query({
       database_id: process.env.NOTION_EXPERIENCE_DATABASE_ID,

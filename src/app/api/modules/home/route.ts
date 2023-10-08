@@ -1,14 +1,12 @@
-import { NextRequest, NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
+import { NextResponse } from "next/server";
 import NotionAdpter from "../../core/database/notion-adapter";
 import HomeControllerImpl from "./adapters/controller/home-controller-impl";
 import HomeRepositoryImpl from "./adapters/repositories/home-repository-impl";
 import GetHomePageDataUsecase from "./application/usecases/get-home-page-data";
 
-export async function GET(request: NextRequest) {
-  const path = request.nextUrl.pathname;
-  revalidatePath(path);
+export const revalidate = true;
 
+export async function GET() {
   const databaseId = process.env.NOTION_DATABASE_ID || "";
   const homePageId = process.env.NOTION_HOME_PAGE_ID || "";
   const notionToken = process.env.NOTION_TOKEN || "";
