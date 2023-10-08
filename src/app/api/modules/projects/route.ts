@@ -4,7 +4,7 @@ import { Project, ProjectSerealized } from "@/interfaces/projectsPage";
 import notionClient from "@/lib/notion-client";
 
 export async function GET(request: NextRequest) {
-  const path = request.nextUrl.searchParams.get("path") || "";
+  const path = request.nextUrl.pathname
   revalidatePath(path);
 
   try {

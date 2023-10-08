@@ -6,7 +6,7 @@ import HomeRepositoryImpl from "./adapters/repositories/home-repository-impl";
 import GetHomePageDataUsecase from "./application/usecases/get-home-page-data";
 
 export async function GET(request: NextRequest) {
-  const path = request.nextUrl.searchParams.get("path") || "";
+  const path = request.nextUrl.pathname;
   revalidatePath(path);
 
   const databaseId = process.env.NOTION_DATABASE_ID || "";

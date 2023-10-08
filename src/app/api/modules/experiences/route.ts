@@ -5,7 +5,7 @@ import notionClient from "@/lib/notion-client";
 import NotionService from "../../core/notion.service";
 
 export async function GET(request: NextRequest) {
-  const path = request.nextUrl.searchParams.get("path") || "";
+  const path = request.nextUrl.pathname
   revalidatePath(path);
 
   try {
