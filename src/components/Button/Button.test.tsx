@@ -26,7 +26,7 @@ describe("Button", () => {
   test("Should call onClick function", async () => {
     const onClick = jest.fn();
     const user = userEvent.setup();
-    render(<Button label='ENVIAR' onclick={onClick}/>);
+    render(<Button label='ENVIAR' onclick={onClick} />);
 
     const button = screen.getByRole("button", {
       name: /enviar/i,

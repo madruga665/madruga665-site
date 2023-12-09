@@ -9,7 +9,7 @@ describe("Brand", () => {
       name: /logo de madruga/i,
     });
     const brand = screen.getByRole("heading", {
-      level: 2
+      level: 2,
     });
 
     expect(logo).toBeInTheDocument();
