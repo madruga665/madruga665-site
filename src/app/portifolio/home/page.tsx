@@ -35,7 +35,7 @@ async function Home() {
           <p>{presentation}</p>
         </WindowCard>
         <div className={styles.socialContainer}>
-          {socialIcons?.map((icon: IconSerealized, index: number) => (
+          {socialIcons?.map((icon: IconSerealized) => (
             <Link key={icon.name} href={icon.link} target='_blank' rel='noreferrer'>
               <Image src={icon.iconImg} alt={icon.name} width={200} height={200} />
             </Link>

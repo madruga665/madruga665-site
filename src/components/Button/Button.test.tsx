@@ -1,4 +1,5 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import Button from ".";
 
 describe("Button", () => {
@@ -22,15 +23,16 @@ describe("Button", () => {
     expect(button).toBeInTheDocument();
   });
 
-  test("Should call onClick function", () => {
+  test("Should call onClick function", async () => {
     const onClick = jest.fn();
+    const user = userEvent.setup();
     render(<Button label='ENVIAR' onclick={onClick}/>);
 
     const button = screen.getByRole("button", {
       name: /enviar/i,
     });
 
-    fireEvent.click(button);
+    await user.click(button);
 
     expect(onClick).toHaveBeenCalledTimes(1);
   });
