@@ -1,9 +1,9 @@
 class EnumHelper {
-  private _links = [
-    { title: "HOME", link: "/portifolio/home" },
-    { title: "PROJETOS", link: "/portifolio/projetos" },
-    { title: "EXPERIÊNCIA", link: "/portifolio/experiencia" },
-    { title: "CONTATO", link: "/portifolio/contato" },
+  private _paths = [
+    { title: "HOME", path: "/portifolio/home" },
+    { title: "PROJETOS", path: "/portifolio/projetos" },
+    { title: "EXPERIÊNCIA", path: "/portifolio/experiencia" },
+    { title: "CONTATO", path: "/portifolio/contato" },
   ];
 
   private _toastMessages = {
@@ -11,8 +11,8 @@ class EnumHelper {
     error: "Erro ao enviar mensagem!",
   };
 
-  get links() {
-    return this._links;
+  get paths() {
+    return this._paths;
   }
 
   get toastMessages() {

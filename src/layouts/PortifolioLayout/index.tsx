@@ -1,16 +1,14 @@
 "use client";
 import { ToastContainer } from "react-toastify";
-
+import { PropsWithChildren } from "react";
 import Header from "@/components/Header";
-
-import styles from "./styles.module.scss";
 import "react-toastify/dist/ReactToastify.css";
+import styles from "./styles.module.scss";
+import EnumHelper from "@/helpers/enumHelper";
 
-interface IPageTemplateProps {
-  children: React.ReactNode;
-}
+function PortifolioLayout({ children }: PropsWithChildren) {
+  const enumHerper = new EnumHelper();
 
-function PortifolioLayout({ children }: IPageTemplateProps) {
   return (
     <div className={styles.Container}>
       <ToastContainer
@@ -25,7 +23,7 @@ function PortifolioLayout({ children }: IPageTemplateProps) {
         pauseOnHover
         theme='colored'
       />
-      <Header />
+      <Header paths={enumHerper.paths} />
       <section className={styles.ContentContainer}>{children}</section>
     </div>
   );

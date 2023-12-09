@@ -2,11 +2,18 @@ import Brand from "../Brand";
 import NavLinks from "../Navlinks";
 import styles from "./styles.module.scss";
 
-const Header = () => {
+interface HeaderProps {
+  paths: {
+    title: string;
+    path: string;
+  }[];
+}
+
+const Header = ( { paths }: HeaderProps ) => {
   return (
     <header className={styles.Header}>
       <Brand />
-      <NavLinks />
+      <NavLinks paths={paths}/>
     </header>
   );
 };

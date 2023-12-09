@@ -1,25 +1,30 @@
 "use client";
 import Link from "next/link";
 
-import EnumHelper from "@/helpers/enumHelper";
 import useHighlightPath from "@/hooks/usePath";
 
 import styles from "./styles.module.scss";
 
-function NavLinks() {
-  const enumHelper = new EnumHelper();
+interface NavLinksProps {
+  paths: {
+    title: string;
+    path: string;
+  }[];
+}
+
+function NavLinks({ paths }: NavLinksProps) {
   const { isCurrentPage } = useHighlightPath();
 
   return (
     <nav className={styles.Links}>
       <ul>
-        {enumHelper.links.map((link) => (
+        {paths.map((item) => (
           <div
-            className={isCurrentPage(link.link) ? styles.LinkContainerActive : styles.LinkContainer}
-            key={link.title}
+            className={isCurrentPage(item.path) ? styles.LinkContainerActive : styles.LinkContainer}
+            key={item.title}
           >
             <li className={styles.StyledListItem}>
-              <Link href={link.link}>{link.title}</Link>
+              <Link href={item.path}>{item.title}</Link>
             </li>
           </div>
         ))}
