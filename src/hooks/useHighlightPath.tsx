@@ -1,12 +1,13 @@
 import { usePathname } from "next/navigation";
 
-function usePath() {
+function useHighlightPath() {
   const pathname = usePathname();
 
-  function isCurrentPage(link: String) {
+  function isCurrentPage(link: string) {
     return pathname === link;
   }
+
   return { isCurrentPage };
 }
 
-export default usePath;
+export default useHighlightPath;

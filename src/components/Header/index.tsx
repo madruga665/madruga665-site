@@ -1,5 +1,5 @@
 import Brand from "../Brand";
-import NavLinks from "../Navlinks";
+import NavLinks from "../NavLinks";
 import styles from "./styles.module.scss";
 
 interface HeaderProps {
@@ -9,11 +9,11 @@ interface HeaderProps {
   }[];
 }
 
-const Header = ( { paths }: HeaderProps ) => {
+const Header = ({ paths }: HeaderProps) => {
   return (
     <header className={styles.Header}>
       <Brand />
-      <NavLinks paths={paths}/>
+      <NavLinks paths={paths} />
     </header>
   );
 };

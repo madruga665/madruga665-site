@@ -48,7 +48,7 @@
 .LinkContainerActive {
   @extend .LinkContainer;
   transition: background-color 500ms ease-in-out;
-  background-color:$color-primary;
+  background-color: $color-primary;
   border-bottom: 2px solid $color-clouds;
   font-weight: 500;
   box-shadow: 0 0 0.4rem $color-primary;

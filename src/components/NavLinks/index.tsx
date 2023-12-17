@@ -1,8 +1,6 @@
 "use client";
 import Link from "next/link";
-
-import useHighlightPath from "@/hooks/usePath";
-
+import useHighlightPath from "@/hooks/useHighlightPath";
 import styles from "./styles.module.scss";
 
 interface NavLinksProps {
