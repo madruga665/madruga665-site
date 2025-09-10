@@ -1,6 +1,6 @@
-import { Puff } from "react-loader-spinner";
 import styles from "./styles.module.scss";
 import colors from "../../styles/colors.module.scss";
+import Spinner from "../Spinner";
 
 interface ButtonProps {
   label: string;
@@ -13,7 +13,7 @@ interface ButtonProps {
 function Button({ label, loading, disabled, onclick }: ButtonProps) {
   return (
     <button className={styles.Button} onClick={onclick} disabled={disabled}>
-      {loading ? <Puff width={30} color={colors.colorClouds} /> : label}
+      {loading ? <Spinner width={30} height={30} /> : label}
     </button>
   );
 }

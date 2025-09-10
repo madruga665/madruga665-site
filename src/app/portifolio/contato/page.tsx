@@ -8,7 +8,6 @@ import WindowCard from "@/components/WindowCard";
 import { formData } from "@/interfaces/contactPage";
 import { onSubmit } from "./contact.service";
 
-import "react-toastify/dist/ReactToastify.minimal.css";
 import styles from "./styles.module.scss";
 
 function ContactPage() {

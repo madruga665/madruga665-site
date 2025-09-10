@@ -3,8 +3,6 @@ import { ExperiencesPageData } from "@/interfaces/experiencesPage";
 import notionClient from "@/lib/notion-client";
 import NotionService from "../../core/notion.service";
 
-export const revalidate = true;
-
 export async function GET() {
   try {
     const experiencesPageData: ExperiencesPageData = await notionClient.databases.query({

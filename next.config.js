@@ -6,8 +6,8 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "github.com",
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
       },
       {
         protocol: "https",
