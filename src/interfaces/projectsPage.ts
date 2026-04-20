@@ -24,8 +24,11 @@ export interface Project {
     image: {
       name: string;
       files: Array<{
-        external: {
-          url: string;
+        file?: {
+          url?: string;
+        };
+        external?: {
+          url?: string;
         };
       }>;
     };
@@ -38,5 +41,5 @@ export interface ProjectSerealized {
   tags: Array<string>;
   githubRepository: string;
   production: string;
-  image: string;
+  image?: string;
 }

@@ -1,6 +1,6 @@
-import { NextResponse } from "next/server";
-import { Project, ProjectSerealized } from "@/interfaces/projectsPage";
-import notionClient from "@/lib/notion-client";
+import { NextResponse } from 'next/server';
+import { Project, ProjectSerealized } from '@/interfaces/projectsPage';
+import notionClient from '@/lib/notion-client';
 
 export async function GET() {
   try {
@@ -15,13 +15,15 @@ export async function GET() {
         tags: project.properties.tags.multi_select.map((tag: any) => tag.name),
         githubRepository: project.properties.github_repository.url,
         production: project.properties.production.url,
-        image: project.properties.image.files[0]?.external.url,
+        image:
+          project.properties.image?.files[0]?.external?.url ??
+          project.properties.image?.files[0]?.file?.url,
       };
     });
 
     const filterUndefinedObjects = response.filter((item: ProjectSerealized) => {
       const checkObjectisUndefined = Object.values(item).every(
-        (value) => value === undefined || value === null || value.length === 0
+        (value) => value === undefined || value === null || value.length === 0,
       );
 
       return !checkObjectisUndefined;
