@@ -1,13 +1,19 @@
-import Image from "next/image";
-import { ProjectSerealized } from "../../interfaces/projectsPage";
-import LinkButton from "../LinkButton";
-import styles from "./styles.module.scss";
+import Image from 'next/image';
+import { ProjectSerealized } from '../../interfaces/projectsPage';
+import LinkButton from '../LinkButton';
+import styles from './styles.module.scss';
 
 function ProjectCard(project: ProjectSerealized) {
   return (
     <div className={styles.Card}>
       <header>
-        <Image src={project.image} alt={project.name} width={500} height={500} priority />
+        <Image
+          src={project.image ?? '/assets/rocket-fallback-image.jpg'}
+          alt={project.name}
+          width={500}
+          height={500}
+          priority
+        />
       </header>
       <div className={styles.Content}>
         <h3>{project.name}</h3>
