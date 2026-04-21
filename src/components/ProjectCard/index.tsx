@@ -8,7 +8,7 @@ function ProjectCard(project: ProjectSerealized) {
     <div className={styles.Card}>
       <header>
         <Image
-          src={project.image ?? '/assets/rocket-fallback-image.jpg'}
+          src={project.image || '/assets/rocket-fallback-image.jpg'}
           alt={project.name}
           width={500}
           height={500}

@@ -1,8 +1,8 @@
-export interface ProjectSerealized {
+export type Project = {
   name: string;
   description: string;
-  tags: Array<string>;
+  tags: string[];
   githubRepository: string;
   production: string;
   image?: string;
-}
+};

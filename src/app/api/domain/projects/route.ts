@@ -1,37 +1,25 @@
 import { NextResponse } from 'next/server';
-import { Project, ProjectSerealized } from '@/interfaces/projectsPage';
-import notionClient from '@/lib/notion-client';
+import { NotionAdpter } from '../../infrastructure/database/notion-adapter';
+import { ProjectRepository } from './repositories/project-repository';
+import { GetProjectsUsecase } from './usecases/get-projects';
+
+const datasourceId = process.env.NOTION_PROJECTS_DATASOURCE_ID || '';
+const notionToken = process.env.NOTION_TOKEN || '';
+
+const notionAdpter = new NotionAdpter({ notionToken }).connect();
+const projectRepository = new ProjectRepository({
+  datasourceId,
+  client: notionAdpter,
+});
+const getProjectsUsecase = new GetProjectsUsecase(projectRepository);
 
 export async function GET() {
   try {
-    const projectsPageData = await notionClient.databases.query({
-      database_id: process.env.NOTION_PROJECTS_DATABASE_ID,
-    });
+    const data = await getProjectsUsecase.execute();
 
-    const response = projectsPageData.results.map((project: Project): ProjectSerealized => {
-      return {
-        name: project.properties.name.title[0]?.plain_text,
-        description: project.properties.description.rich_text[0]?.plain_text,
-        tags: project.properties.tags.multi_select.map((tag: any) => tag.name),
-        githubRepository: project.properties.github_repository.url,
-        production: project.properties.production.url,
-        image:
-          project.properties.image?.files[0]?.external?.url ??
-          project.properties.image?.files[0]?.file?.url,
-      };
-    });
-
-    const filterUndefinedObjects = response.filter((item: ProjectSerealized) => {
-      const checkObjectisUndefined = Object.values(item).every(
-        (value) => value === undefined || value === null || value.length === 0,
-      );
-
-      return !checkObjectisUndefined;
-    });
-
-    return NextResponse.json(filterUndefinedObjects);
+    return NextResponse.json(data);
   } catch (error) {
-    console.log(error);
-    NextResponse.error();
+    console.error(error);
+    return NextResponse.json({ error: 'Erro ao requisitar projetos' }, { status: 500 });
   }
 }
