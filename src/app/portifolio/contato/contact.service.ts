@@ -1,15 +1,15 @@
-import EnumHelper from "@/helpers/enumHelper";
-import { formData } from "@/interfaces/contactPage";
-import { toast } from "react-toastify";
+import EnumHelper from '@/helpers/enumHelper';
+import { formData } from '@/interfaces/contactPage';
+import { toast } from 'react-toastify';
 
 export async function onSubmit(data: formData, refresh: () => void) {
   const enumHelper = new EnumHelper();
 
   try {
-    await fetch("/api/modules/contact", {
-      method: "POST",
+    await fetch('/api/domain/contact', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });

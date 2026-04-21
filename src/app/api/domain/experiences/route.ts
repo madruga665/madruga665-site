@@ -1,7 +1,7 @@
-import { NextResponse } from "next/server";
-import { ExperiencesPageData } from "@/interfaces/experiencesPage";
-import notionClient from "@/lib/notion-client";
-import NotionService from "../../core/notion.service";
+import { NextResponse } from 'next/server';
+import { ExperiencesPageData } from '@/interfaces/experiencesPage';
+import notionClient from '@/lib/notion-client';
+import NotionService from './notion.service';
 
 export async function GET() {
   try {
@@ -9,8 +9,8 @@ export async function GET() {
       database_id: process.env.NOTION_EXPERIENCE_DATABASE_ID,
       sorts: [
         {
-          property: "year",
-          direction: "ascending",
+          property: 'year',
+          direction: 'ascending',
         },
       ],
     });

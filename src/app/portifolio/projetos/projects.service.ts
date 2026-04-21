@@ -1,7 +1,7 @@
 import { ProjectSerealized } from '@/interfaces/projectsPage';
 
 export async function getProjectsPageData(): Promise<ProjectSerealized[]> {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/modules/projects`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/domain/projects`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

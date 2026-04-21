@@ -1,10 +1,10 @@
-import { HomePageData } from "@/interfaces/homePage";
+import { HomePageData } from '@/interfaces/homePage';
 
 export async function getHomePageData(): Promise<HomePageData> {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/modules/home`, {
-    method: "GET",
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/domain/home`, {
+    method: 'GET',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
   });
   const data: HomePageData = await response.json();

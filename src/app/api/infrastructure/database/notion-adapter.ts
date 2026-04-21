@@ -1,14 +1,13 @@
-import { Client } from "@notionhq/client";
-import DatabaseConnection from "./database-connection";
-
+import { Client } from '@notionhq/client';
+import DatabaseConnection from './database-connection';
 
 type NotionAdpterProps = {
   notionToken: string;
 };
 
-class NotionAdpter implements DatabaseConnection {
-  notionToken: string;
-  client: Client;
+export class NotionAdpter implements DatabaseConnection {
+  private notionToken: string;
+  private client: Client;
 
   constructor({ notionToken }: NotionAdpterProps) {
     this.notionToken = notionToken;
@@ -19,5 +18,3 @@ class NotionAdpter implements DatabaseConnection {
     return this.client;
   }
 }
-
-export default NotionAdpter;

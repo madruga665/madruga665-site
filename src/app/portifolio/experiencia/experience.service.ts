@@ -1,12 +1,12 @@
-import { Experience } from "@/interfaces/experiencesPage";
+import { Experience } from '@/interfaces/experiencesPage';
 
 export async function getExperiencePageData(): Promise<Experience[]> {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/modules/experiences`, {
-    method: "GET",
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/domain/experiences`, {
+    method: 'GET',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
-    cache: "no-store",
+    cache: 'no-store',
   });
   const data: Experience[] = await response.json();
 
