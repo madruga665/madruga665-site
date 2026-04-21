@@ -1,25 +1,25 @@
 import { NextResponse } from 'next/server';
-import { ExperiencesPageData } from '@/interfaces/experiencesPage';
-import notionClient from '@/lib/notion-client';
-import NotionService from './notion.service';
+import { NotionAdpter } from '../../infrastructure/database/notion-adapter';
+import { ExperienceRepository } from './repositories/experience-repository';
+import { GetExperiencesUsecase } from './usecases/get-experiences';
+
+const dataSourceId = process.env.NOTION_EXPERIENCE_DATA_SOURCE_ID || '';
+const notionToken = process.env.NOTION_TOKEN || '';
+
+const notionAdpter = new NotionAdpter({ notionToken }).connect();
+const experienceRepository = new ExperienceRepository({
+  dataSourceId,
+  client: notionAdpter,
+});
+const getExperiencesUsecase = new GetExperiencesUsecase(experienceRepository);
 
 export async function GET() {
   try {
-    const experiencesPageData: ExperiencesPageData = await notionClient.databases.query({
-      database_id: process.env.NOTION_EXPERIENCE_DATABASE_ID,
-      sorts: [
-        {
-          property: 'year',
-          direction: 'ascending',
-        },
-      ],
-    });
-
-    const data = NotionService.getExperiencePageData(experiencesPageData);
+    const data = await getExperiencesUsecase.execute();
 
     return NextResponse.json(data);
   } catch (error) {
-    console.log(error);
-    throw error;
+    console.error(error);
+    return NextResponse.json({ error: 'Erro ao requisitar experiências' }, { status: 500 });
   }
 }

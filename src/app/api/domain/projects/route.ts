@@ -3,12 +3,12 @@ import { NotionAdpter } from '../../infrastructure/database/notion-adapter';
 import { ProjectRepository } from './repositories/project-repository';
 import { GetProjectsUsecase } from './usecases/get-projects';
 
-const datasourceId = process.env.NOTION_PROJECTS_DATASOURCE_ID || '';
+const dataSourceId = process.env.NOTION_PROJECTS_DATA_SOURCE_ID || '';
 const notionToken = process.env.NOTION_TOKEN || '';
 
 const notionAdpter = new NotionAdpter({ notionToken }).connect();
 const projectRepository = new ProjectRepository({
-  datasourceId,
+  dataSourceId,
   client: notionAdpter,
 });
 const getProjectsUsecase = new GetProjectsUsecase(projectRepository);

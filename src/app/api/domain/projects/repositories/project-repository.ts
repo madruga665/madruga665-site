@@ -5,21 +5,21 @@ import { ProjectMapper } from '../mappers/project-mapper';
 
 type ProjectRepositoryProps = {
   client: Client;
-  datasourceId: string;
+  dataSourceId: string;
 };
 
 export class ProjectRepository {
   private client: Client;
-  private datasourceId: string;
+  private dataSourceId: string;
 
-  constructor({ client, datasourceId }: ProjectRepositoryProps) {
+  constructor({ client, dataSourceId }: ProjectRepositoryProps) {
     this.client = client;
-    this.datasourceId = datasourceId;
+    this.dataSourceId = dataSourceId;
   }
 
   async getProjects(): Promise<Project[]> {
     const response = await this.client.dataSources.query({
-      data_source_id: this.datasourceId,
+      data_source_id: this.dataSourceId,
     });
 
     const projects = response.results

@@ -1,12 +1,8 @@
-export interface Experience {
+export type Experience = {
   companyImg: string;
   role: string;
   companyName: string;
   period: string;
   description: string;
   year: number;
-}
-
-export interface ExperiencesPageProps {
-  experiencePageData: Array<Experience>;
-}
+};
