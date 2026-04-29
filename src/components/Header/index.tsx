@@ -1,6 +1,6 @@
-import Brand from "../Brand";
-import NavLinks from "../NavLinks";
-import styles from "./styles.module.scss";
+import { Brand } from '../Brand';
+import { NavLinks } from '../NavLinks';
+import styles from './styles.module.scss';
 
 interface HeaderProps {
   paths: {
@@ -9,13 +9,13 @@ interface HeaderProps {
   }[];
 }
 
-const Header = ({ paths }: HeaderProps) => {
+export function Header({ paths }: HeaderProps) {
   return (
     <header className={styles.Header}>
-      <Brand />
-      <NavLinks paths={paths} />
+      <div className={styles.HeaderContent}>
+        <Brand />
+        <NavLinks paths={paths} />
+      </div>
     </header>
   );
-};
-
-export default Header;
+}

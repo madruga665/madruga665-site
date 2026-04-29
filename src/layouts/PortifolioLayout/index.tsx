@@ -1,18 +1,18 @@
-"use client";
-import { ToastContainer } from "react-toastify";
-import { PropsWithChildren } from "react";
-import Header from "@/components/Header";
-import "react-toastify/dist/ReactToastify.css";
-import styles from "./styles.module.scss";
-import EnumHelper from "@/helpers/enumHelper";
+'use client';
+import { ToastContainer } from 'react-toastify';
+import { PropsWithChildren } from 'react';
+import { Header } from '@/components/Header';
+import 'react-toastify/dist/ReactToastify.css';
+import styles from './styles.module.scss';
+import EnumHelper from '@/helpers/enumHelper';
 
-function PortifolioLayout({ children }: PropsWithChildren) {
+export default function PortifolioLayout({ children }: PropsWithChildren) {
   const enumHerper = new EnumHelper();
 
   return (
     <div className={styles.Container}>
       <ToastContainer
-        position='top-center'
+        position="top-center"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -21,12 +21,10 @@ function PortifolioLayout({ children }: PropsWithChildren) {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme='colored'
+        theme="colored"
       />
       <Header paths={enumHerper.paths} />
       <section className={styles.ContentContainer}>{children}</section>
     </div>
   );
 }
-
-export default PortifolioLayout;

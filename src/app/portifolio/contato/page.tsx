@@ -3,7 +3,7 @@ import Head from "next/head";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 
-import Button from "@/components/Button";
+import { Button } from "@/components/Button";
 import WindowCard from "@/components/WindowCard";
 import { formData } from "@/interfaces/contactPage";
 import { onSubmit } from "./contact.service";

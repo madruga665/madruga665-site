@@ -1,32 +1,17 @@
 import { render, screen } from "@testing-library/react";
-import NavLinks from ".";
+import { NavLinks } from ".";
 import EnumHelper from "@/helpers/enumHelper";
+import { usePathname } from "next/navigation";
 
-jest.mock("next/navigation", () => {
-  const originalModule = jest.requireActual("next/navigation");
-
-  return {
-    __esModule: true,
-    ...originalModule,
-    usePathname: jest.fn(() => "/portifolio/home"),
-  };
-});
-
-jest.mock("../../hooks/useHighlightPath", () => {
-  const originalModule = jest.requireActual("../../hooks/useHighlightPath");
-
-  return {
-    __esModule: true,
-    ...originalModule,
-    isCurrentPage: jest.fn(() => true),
-  };
-});
+jest.mock("next/navigation", () => ({
+  usePathname: jest.fn(),
+}));
 
 describe("Navlinks", () => {
   const enumHelper = new EnumHelper();
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    (usePathname as jest.Mock).mockReturnValue("/portifolio/home");
   });
 
   test("Should render Navlinks", () => {
@@ -48,7 +33,7 @@ describe("Navlinks", () => {
   test("Should has one element with active class", () => {
     const { container } = render(<NavLinks paths={enumHelper.paths} />);
 
-    const activeLink = container.getElementsByClassName("LinkContainerActive");
+    const activeLink = container.getElementsByClassName("StyledListItemActive");
 
     expect(activeLink).toHaveLength(1);
   });

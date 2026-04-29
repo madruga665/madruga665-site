@@ -1,7 +1,7 @@
-"use client";
-import Link from "next/link";
-import useHighlightPath from "@/hooks/useHighlightPath";
-import styles from "./styles.module.scss";
+'use client';
+import Link from 'next/link';
+import useHighlightPath from '@/hooks/useHighlightPath';
+import styles from './styles.module.scss';
 
 interface NavLinksProps {
   paths: {
@@ -10,25 +10,23 @@ interface NavLinksProps {
   }[];
 }
 
-function NavLinks({ paths }: NavLinksProps) {
+export function NavLinks({ paths }: NavLinksProps) {
   const { isCurrentPage } = useHighlightPath();
 
   return (
     <nav className={styles.Links}>
       <ul>
         {paths.map((item) => (
-          <div
-            className={isCurrentPage(item.path) ? styles.LinkContainerActive : styles.LinkContainer}
+          <li
+            className={
+              isCurrentPage(item.path) ? styles.StyledListItemActive : styles.StyledListItem
+            }
             key={item.title}
           >
-            <li className={styles.StyledListItem}>
-              <Link href={item.path}>{item.title}</Link>
-            </li>
-          </div>
+            <Link href={item.path}>{item.title}</Link>
+          </li>
         ))}
       </ul>
     </nav>
   );
 }
-
-export default NavLinks;

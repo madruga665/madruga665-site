@@ -10,12 +10,15 @@ interface ButtonProps {
   onclick?: () => void;
 }
 
-function Button({ label, loading, disabled, onclick }: ButtonProps) {
+export function Button({ label, loading, disabled, onclick }: ButtonProps) {
   return (
-    <button className={styles.Button} onClick={onclick} disabled={disabled}>
+    <button
+      className={styles.Button}
+      onClick={onclick}
+      disabled={disabled}
+      aria-label={loading ? "puff-loading" : label}
+    >
       {loading ? <Spinner width={30} height={30} /> : label}
     </button>
   );
 }
-
-export default Button;
