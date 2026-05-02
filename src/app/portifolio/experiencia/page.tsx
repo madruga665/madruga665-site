@@ -1,15 +1,15 @@
-import { Experience } from "@/interfaces/experiencesPage";
-import { getExperiencePageData } from "./experience.service";
-import Card from "@/components/Card";
+import { Experience } from '@/interfaces/experiencesPage';
+import { getExperiencePageData } from './experience.service';
+import Card from '@/components/Card';
 
-import styles from "./styles.module.scss";
-import WindowCard from "@/components/WindowCard";
+import styles from './styles.module.scss';
+import WindowCard from '@/components/WindowCard';
 
 export const metadata = {
-  title: "Luciano Amâncio - Experiência",
+  title: 'Luciano Amâncio - Experiência',
 };
 
-async function Experience() {
+export default async function ExperiencePage() {
   const experiencePageData = await getExperiencePageData();
 
   return (
@@ -28,5 +28,3 @@ async function Experience() {
     </div>
   );
 }
-
-export default Experience;
