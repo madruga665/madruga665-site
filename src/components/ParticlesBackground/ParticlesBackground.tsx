@@ -1,13 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Particles, initParticlesEngine } from '@tsparticles/react';
-import { Container, ISourceOptions } from '@tsparticles/engine';
+import { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
 import dynamic from 'next/dynamic';
 
 const Particles = dynamic(() => import('@tsparticles/react').then((mod) => mod.Particles), {
-  ssr: false, // Desativa Server Side Rendering para este componente
+  ssr: false,
 });
 
 const ParticlesBackground = () => {
@@ -21,11 +20,7 @@ const ParticlesBackground = () => {
     });
   }, []);
 
-  const particlesLoaded = async (container?: Container): Promise<void> => {
-    console.log('Partículas carregadas', container);
-  };
-
-  const options: ISourceOptions = {
+  const options = {
     fpsLimit: 120,
     interactivity: {
       events: {
@@ -82,7 +77,7 @@ const ParticlesBackground = () => {
   if (init) {
     return (
       <div style={{ position: 'fixed', inset: 0, zIndex: -1 }}>
-        <Particles id="tsparticles" particlesLoaded={particlesLoaded} options={options} />
+        <Particles options={options} />
       </div>
     );
   }
