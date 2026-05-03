@@ -22,7 +22,7 @@ function Home() {
 
       <Wave
         fill={colors.colorPrimaryDark}
-        className={styles.CustomWave}
+        className={styles.customWave}
         paused={false}
         options={{
           height: 60,
