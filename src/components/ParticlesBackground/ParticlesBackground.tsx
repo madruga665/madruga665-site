@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Particles, initParticlesEngine } from '@tsparticles/react';
-import type { Container, ISourceOptions } from '@tsparticles/engine';
+import { Container, ISourceOptions } from '@tsparticles/engine';
 import { loadSlim } from '@tsparticles/slim';
 
 const ParticlesBackground = () => {
