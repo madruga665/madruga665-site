@@ -11,8 +11,8 @@ interface HeaderProps {
 
 export function Header({ paths }: HeaderProps) {
   return (
-    <header className={styles.Header}>
-      <div className={styles.HeaderContent}>
+    <header className={styles.header}>
+      <div className={styles.headerContent}>
         <Brand />
         <NavLinks paths={paths} />
       </div>

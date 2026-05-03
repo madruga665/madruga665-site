@@ -1,14 +1,12 @@
 @import "@/styles/colors.module.scss";
 @import "@/styles/animations.scss";
 
-.Container {
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-
-  background-color: $color-wetAsphalt;
   gap: 50px;
   color: $color-clouds;
 
@@ -41,11 +39,7 @@
   }
 }
 
-.CustomWave {
+.customWave {
   position: absolute;
   bottom: 0;
-}
-
-.Loading {
-  margin-top: 15rem;
 }

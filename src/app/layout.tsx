@@ -1,6 +1,7 @@
+'use client';
 import { Poppins } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
-
+import ParticlesBackground from '@/components/ParticlesBackground/ParticlesBackground';
 import '../styles/global.scss';
 
 const poppins = Poppins({
@@ -11,7 +12,10 @@ const poppins = Poppins({
 function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>{children}</body>
+      <body className={poppins.className}>
+        <ParticlesBackground />
+        {children}
+      </body>
       <Analytics />
     </html>
   );

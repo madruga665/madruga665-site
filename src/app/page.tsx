@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 
 function Home() {
   return (
-    <div className={styles.Container}>
+    <div className={styles.container}>
       <Head>
         <title>A Vida é Bela!!! XD</title>
       </Head>
@@ -34,7 +34,7 @@ function Home() {
 
       <Wave
         fill={colors.colorPrimary}
-        className={styles.CustomWave}
+        className={styles.customWave}
         paused={false}
         options={{
           height: 80,
