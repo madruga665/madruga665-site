@@ -4,6 +4,11 @@ import { useEffect, useState } from 'react';
 import { Particles, initParticlesEngine } from '@tsparticles/react';
 import { Container, ISourceOptions } from '@tsparticles/engine';
 import { loadSlim } from '@tsparticles/slim';
+import dynamic from 'next/dynamic';
+
+const Particles = dynamic(() => import('@tsparticles/react').then((mod) => mod.Particles), {
+  ssr: false, // Desativa Server Side Rendering para este componente
+});
 
 const ParticlesBackground = () => {
   const [init, setInit] = useState(false);
