@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { initParticlesEngine } from '@tsparticles/react';
+import { ISourceOptions } from '@tsparticles/engine';
 import { loadSlim } from '@tsparticles/slim';
 import dynamic from 'next/dynamic';
 
@@ -20,7 +21,7 @@ const ParticlesBackground = () => {
     });
   }, []);
 
-  const options = {
+  const options: ISourceOptions = {
     fpsLimit: 120,
     interactivity: {
       events: {
