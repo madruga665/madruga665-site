@@ -46,4 +46,26 @@ describe('ProjectCard Component', () => {
       expect(img).toHaveAttribute('src', expect.stringContaining('rocket-fallback-image.jpg'));
     });
   });
+
+  it('renders enabled production link button for active project (is_active: true or undefined)', () => {
+    const { unmount } = render(<ProjectCard {...mockProject} />);
+    const prodLinkUndefined = screen.getByRole('link', { name: 'Ver o projeto' });
+    expect(prodLinkUndefined).not.toHaveAttribute('aria-disabled');
+    expect(prodLinkUndefined).toHaveAttribute('href', 'https://example.com');
+
+    unmount();
+
+    render(<ProjectCard {...mockProject} is_active={true} />);
+    const prodLinkActive = screen.getByRole('link', { name: 'Ver o projeto' });
+    expect(prodLinkActive).not.toHaveAttribute('aria-disabled');
+    expect(prodLinkActive).toHaveAttribute('href', 'https://example.com');
+  });
+
+  it('renders disabled production link button for inactive project (is_active: false)', () => {
+    render(<ProjectCard {...mockProject} is_active={false} />);
+    const prodLinkInactive = screen.getByRole('link', { name: 'Ver o projeto' });
+    expect(prodLinkInactive).toHaveAttribute('aria-disabled', 'true');
+    expect(prodLinkInactive.className).toContain('disabled');
+  });
 });
+

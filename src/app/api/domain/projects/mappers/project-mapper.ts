@@ -14,6 +14,10 @@ export class ProjectMapper {
       props.image?.files?.[0]?.external?.url ||
       props.image?.files?.[0]?.file?.url ||
       '';
+    const is_active =
+      typeof props.is_active?.checkbox === 'boolean'
+        ? props.is_active.checkbox
+        : true;
 
     return {
       name,
@@ -22,6 +26,7 @@ export class ProjectMapper {
       githubRepository,
       production,
       image,
+      is_active,
     };
   }
 }

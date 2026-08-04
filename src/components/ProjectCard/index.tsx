@@ -80,7 +80,7 @@ function ProjectCard(project: ProjectSerealized) {
       </div>
       <footer>
         <LinkButton url={project.githubRepository}>Repositório no Github</LinkButton>
-        <LinkButton url={project.production} variant="pink">
+        <LinkButton url={project.production} variant="pink" disabled={project.is_active === false}>
           Ver o projeto
         </LinkButton>
       </footer>

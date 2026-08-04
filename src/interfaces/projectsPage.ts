@@ -5,4 +5,5 @@ export interface ProjectSerealized {
   githubRepository: string;
   production: string;
   image?: string;
+  is_active?: boolean;
 }

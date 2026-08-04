@@ -34,3 +34,16 @@
     background-color: var(--neo-accent-pink-hover, #ff85b3);
   }
 }
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none;
+
+  &:hover,
+  &:active {
+    transform: none;
+    box-shadow: none;
+  }
+}

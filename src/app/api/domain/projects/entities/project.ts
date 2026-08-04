@@ -5,4 +5,5 @@ export type Project = {
   githubRepository: string;
   production: string;
   image?: string;
+  is_active?: boolean;
 };
