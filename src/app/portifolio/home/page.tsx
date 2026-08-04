@@ -13,6 +13,9 @@ export const metadata = {
   title: 'Luciano Amâncio - Home',
 };
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 async function Home() {
   const homePageData = await getHomePageData();
   const { presentation, socialIcons, image, curriculo } = homePageData;

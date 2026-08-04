@@ -9,6 +9,9 @@ export const metadata = {
   title: 'Luciano Amâncio - Experiência',
 };
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default async function ExperiencePage() {
   const experiencePageData = await getExperiencePageData();
 

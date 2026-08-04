@@ -10,6 +10,9 @@ export const metadata = {
   description: "Projetos desenvolvidos por Luciano Amâncio",
 };
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 async function Projects() {
   const projects = await getProjectsPageData();
 

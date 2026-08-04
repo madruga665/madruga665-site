@@ -3,6 +3,9 @@ import { NotionAdpter } from '../../infrastructure/database/notion-adapter';
 import { HomeRepository } from './repositories/home-repository';
 import { GetHomePageDataUsecase } from './usecases/get-home-page-data';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 const homePageId = process.env.NOTION_HOME_PAGE_ID || '';
 const notionToken = process.env.NOTION_TOKEN || '';
 
@@ -19,6 +22,6 @@ export async function GET() {
 
     return NextResponse.json(data);
   } catch (error) {
-    NextResponse.json({ error: 'Erro ao requisitar dados da home page' });
+    return NextResponse.json({ error: 'Erro ao requisitar dados da home page' }, { status: 500 });
   }
 }

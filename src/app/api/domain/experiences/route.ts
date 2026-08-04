@@ -3,6 +3,9 @@ import { NotionAdpter } from '../../infrastructure/database/notion-adapter';
 import { ExperienceRepository } from './repositories/experience-repository';
 import { GetExperiencesUsecase } from './usecases/get-experiences';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 const dataSourceId = process.env.NOTION_EXPERIENCE_DATA_SOURCE_ID || '';
 const notionToken = process.env.NOTION_TOKEN || '';
 

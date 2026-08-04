@@ -3,6 +3,9 @@ import { NotionAdpter } from '../../infrastructure/database/notion-adapter';
 import { ProjectRepository } from './repositories/project-repository';
 import { GetProjectsUsecase } from './usecases/get-projects';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 const dataSourceId = process.env.NOTION_PROJECTS_DATA_SOURCE_ID || '';
 const notionToken = process.env.NOTION_TOKEN || '';
 
