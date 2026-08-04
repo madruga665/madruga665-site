@@ -2,7 +2,7 @@ import styles from './styles.module.scss';
 
 export function Brand() {
   return (
-    <div className={styles.LogoName}>
+    <div className={styles.logoName}>
       <h2>
         {'<'}
         <span>L</span>

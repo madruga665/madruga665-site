@@ -28,11 +28,12 @@
 
   .text {
     font-size: 1rem;
-    font-weight: 300;
-    color: $color-clouds;
+    font-weight: 500;
+    color: var(--neo-color-text-main, #000000);
     max-width: 500px;
     text-align: center;
     margin-bottom: 0.5rem;
+    line-height: 1.4;
   }
 
   @media only screen and (min-width: 768px) {
@@ -45,47 +46,60 @@
   flex-direction: column;
   width: 100%;
   max-width: 500px;
-  gap: 0.2rem;
+  gap: 0.4rem;
 
   label {
-    font-weight: 500;
-    color: $color-clouds;
+    font-weight: 800;
+    color: var(--neo-color-text-main, #000000);
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
   }
 
   .errorText {
-    color: $color-alizarin;
+    color: var(--neo-color-text-error, #dc2626);
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-top: 0.2rem;
   }
 
-  textarea,
+  input,
+  textarea {
+    width: 100%;
+    border: var(--neo-border);
+    border-radius: 6px;
+    background-color: var(--neo-color-bg-input, #ffffff);
+    color: var(--neo-color-text-main, #000000);
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 3px 3px 0px var(--neo-border-color, #000000);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+    &:focus {
+      outline: none;
+      box-shadow: 5px 5px 0px var(--neo-border-color, #000000);
+      transform: translate(-1px, -1px);
+    }
+  }
+
   input {
-    border: none;
-  }
-
-  textarea:focus,
-  input:focus {
-    outline: none;
-  }
-
-  input {
-    border-radius: 8px;
-    height: 40px;
-    padding: 0 25px;
+    height: 44px;
+    padding: 0 16px;
   }
 
   textarea {
-    height: 90px;
+    height: 110px;
     resize: none;
-    border-radius: 10px;
-    padding: 20px;
+    padding: 14px 16px;
 
     @media only screen and (min-width: 768px) {
-      height: 200px;
+      height: 180px;
     }
   }
 }
 
 .buttonContainer {
   width: 100%;
-  height: 40px;
+  height: 46px;
   max-width: 500px;
+  margin-top: 0.5rem;
 }

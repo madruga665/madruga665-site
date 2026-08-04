@@ -1,12 +1,7 @@
-import Spinner from "@/components/Spinner";
-import styles from "./../styles.module.scss";
+import Spinner from '@/components/Spinner';
 
 function Loading() {
-  return (
-    <div className={styles.Loading}>
-      <Spinner />
-    </div>
-);
+  return <Spinner fullScreen />;
 }
 
 export default Loading;

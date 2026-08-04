@@ -41,19 +41,19 @@ function ContactPage() {
           <div className={styles.formControl}>
             <label htmlFor="name">Seu Nome</label>
             <input id="name" type="text" {...register('name', { required: true })} />
-            {errors.name && <span className={styles.ErrorText}>Nome obrigatório</span>}
+            {errors.name && <span className={styles.errorText}>Nome obrigatório</span>}
           </div>
 
           <div className={styles.formControl}>
             <label htmlFor="email">Seu Email</label>
             <input id="email" type="email" {...register('email', { required: true })} />
-            {errors.email && <span className={styles.ErrorText}>Email obrigatório</span>}
+            {errors.email && <span className={styles.errorText}>Email obrigatório</span>}
           </div>
 
           <div className={styles.formControl}>
             <label htmlFor="message">Sua Mensagem</label>
             <textarea id="message" {...register('message', { required: true })} />
-            {errors.message && <span className={styles.ErrorText}>Mensagem obrigatória</span>}
+            {errors.message && <span className={styles.errorText}>Mensagem obrigatória</span>}
           </div>
           <div className={styles.buttonContainer}>
             <Button type="submit" label="Enviar" loading={isSubmitting} />

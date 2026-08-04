@@ -40,6 +40,6 @@ describe("Header", () => {
     renderHeader();
 
     const activeLink = screen.getByText("HOME").parentElement;
-    expect(activeLink).toHaveClass("StyledListItemActive");
+    expect(activeLink).toHaveClass("styledListItemActive");
   });
 });

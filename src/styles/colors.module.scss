@@ -1,21 +1,38 @@
-$color-emerald: #2ecc71;
-$color-nephritis: #27ae60;
-$color-clouds: #ecf0f1;
-$color-midnightBlue: #2c3e50;
-$color-midnightBlueDark: #293a49;
 $color-wetAsphalt: #34495e;
-$color-alizarin: #e74c3c;
-$color-sunFlower: #f1c40f;
-$color-bg-main: #0b0f19; 
-$color-bg-section: #1e2b37;
 
-$color-primary: #cd2c7a;
-$color-primary-dark: #8f1e54;
+// Neobrutalism Design System Palette Variables
+$color-bg-main: var(--neo-color-bg-canvas, #facc15); 
+$color-bg-header: var(--neo-color-bg-header, #fff0cb);
+$color-bg-card: var(--neo-color-bg-card, #fffdf8);
+$color-bg-input: var(--neo-color-bg-input, #ffffff);
+$color-bg-tool: var(--neo-color-bg-tool, #fef08a);
+
+$color-text-main: var(--neo-color-text-main, #000000);
+$color-text-muted: var(--neo-color-text-muted, #374151);
+$color-text-error: var(--neo-color-text-error, #dc2626);
+
+$color-yellow-accent: var(--neo-accent-yellow, #ffc72c);
+$color-yellow-hover: var(--neo-accent-yellow-hover, #facc15);
+$color-electric-pink: var(--neo-accent-pink, #ff70a6);
+$color-pink-hover: var(--neo-accent-pink-hover, #ff85b3);
+
+$color-primary: var(--neo-color-accent-primary, #ffc72c);
+$color-primary-dark: #eab308;
+
+$color-neon-yellow: $color-yellow-accent;
+$color-neon-pink: $color-electric-pink;
+$color-neon-teal: var(--neo-accent-blue, #7dd3fc);
+$color-neon-purple: var(--neo-accent-purple, #c084fc);
+$color-neo-border: var(--neo-border-color, #000000);
 
 :export {
   colorPrimary: $color-primary;
   colorPrimaryDark: $color-primary-dark;
-  colorEmerald: $color-emerald;
-  colorNephritis: $color-nephritis;
-  colorClouds: $color-clouds
+  colorYellowAccent: $color-yellow-accent;
+  colorElectricPink: $color-electric-pink;
+  colorBgMain: $color-bg-main;
+  colorBgCard: $color-bg-card;
+  colorBgHeader: $color-bg-header;
+  colorNeonTeal: $color-neon-teal;
+  colorNeonPurple: $color-neon-purple;
 }

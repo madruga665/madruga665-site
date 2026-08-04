@@ -1,5 +1,4 @@
 import styles from "./styles.module.scss";
-import colors from "../../styles/colors.module.scss";
 import Spinner from "../Spinner";
 
 interface ButtonProps {
@@ -13,7 +12,7 @@ interface ButtonProps {
 export function Button({ label, loading, disabled, onclick }: ButtonProps) {
   return (
     <button
-      className={styles.Button}
+      className={styles.button}
       onClick={onclick}
       disabled={disabled}
       aria-label={loading ? "puff-loading" : label}

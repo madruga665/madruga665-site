@@ -8,30 +8,55 @@
   justify-content: center;
   width: 90%;
   max-width: 500px;
-  padding: 1rem 0;
-  color: $color-clouds;
+  padding: 1.5rem;
+  color: var(--neo-color-text-main, #000000);
+  background-color: var(--neo-color-bg-card, #fffdf8);
+  border: var(--neo-border);
+  border-radius: 8px;
+  box-shadow: 5px 5px 0px #000000;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0px #000000;
+  }
 
   header {
     display: flex;
     align-items: center;
     width: 100%;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 
     img {
       border-radius: 50%;
+      border: 3px solid var(--neo-border-color, #000000);
       margin-right: 20px;
       object-fit: contain;
+      box-shadow: 2px 2px 0px #000000;
     }
   }
 
+  h3 {
+    color: var(--neo-color-text-main, #000000);
+    font-weight: 800;
+  }
+
   h4 {
-    color: $color-primary;
+    color: var(--neo-accent-amber, #d97706);
+    font-weight: 700;
+  }
+
+  p {
+    color: var(--neo-color-text-main, #000000);
+    font-size: 0.9rem;
   }
 }
 
 .description {
   width: 100%;
-  font-weight: 300;
+  font-weight: 400;
   text-align: justify;
   text-justify: inter-word;
+  line-height: 1.5;
+  color: var(--neo-color-text-main, #000000);
 }

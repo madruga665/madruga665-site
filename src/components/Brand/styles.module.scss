@@ -1,16 +1,40 @@
-@import '../../styles/colors.module';
+@import '../../styles/colors.module.scss';
 
-.LogoName {
+.logoName {
   display: flex;
   align-items: center;
 
   h2 {
-    font-size: 1.5rem;
-    margin-left: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 800;
+    padding: 0.25rem 0.6rem;
+    border: var(--neo-border);
+    border-radius: var(--neo-border-radius);
+    background-color: var(--neo-color-bg-card, #fffdf8);
+    color: var(--neo-color-text-main, #000000);
+    box-shadow: var(--neo-shadow-lg);
+    white-space: nowrap;
 
     span {
-      font-size: 1.8rem;
-      color:$color-primary;
+      font-size: 1.3rem;
+      color: var(--neo-accent-amber, #d97706);
+    }
+
+    @media only screen and (min-width: 380px) {
+      font-size: 1.25rem;
+      padding: 0.3rem 0.8rem;
+
+      span {
+        font-size: 1.45rem;
+      }
+    }
+
+    @media only screen and (min-width: 900px) {
+      font-size: 1.5rem;
+
+      span {
+        font-size: 1.8rem;
+      }
     }
   }
 }

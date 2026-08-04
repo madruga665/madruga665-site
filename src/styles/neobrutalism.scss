@@ -1,0 +1,90 @@
+// Neobrutalism Design System Tokens & Base Mixins
+// Centralized CSS variables for theme consistency across all screen sizes
+
+:root {
+  // Border tokens
+  --neo-border-width: 3px;
+  --neo-border-style: solid;
+  --neo-border-color: #000000;
+  --neo-border: var(--neo-border-width) var(--neo-border-style) var(--neo-border-color);
+  --neo-border-radius: 8px;
+  --neo-border-radius-sm: 6px;
+  --neo-border-radius-lg: 12px;
+
+  // Box shadow tokens (un-blurred hard offsets)
+  --neo-shadow: 4px 4px 0px var(--neo-border-color);
+  --neo-shadow-sm: 2px 2px 0px var(--neo-border-color);
+  --neo-shadow-hover: 6px 6px 0px var(--neo-border-color);
+  --neo-shadow-active: var(--neo-shadow-sm);
+  --neo-shadow-lg: var(--neo-shadow-hover);
+
+  // Background & Surface Color Tokens
+  --neo-color-bg-canvas: #facc15;
+  --neo-color-bg-header: #fff0cb;
+  --neo-color-bg-card: #fffdf8;
+  --neo-color-bg-card-alt: #fff8e7;
+  --neo-color-bg-input: #ffffff;
+  --neo-color-bg-tool: #fef08a;
+
+  // Text Color Tokens
+  --neo-color-text-main: #000000;
+  --neo-color-text-dark: var(--neo-color-text-main);
+  --neo-color-text-muted: #374151;
+  --neo-color-text-error: #dc2626;
+
+  // Accent Color Palette
+  --neo-accent-yellow: #ffc72c;
+  --neo-accent-yellow-hover: #facc15;
+  --neo-color-accent-primary: var(--neo-accent-yellow);
+  --neo-accent-pink: #ff70a6;
+  --neo-accent-pink-hover: #ff85b3;
+  --neo-accent-blue: #7dd3fc;
+  --neo-accent-purple: #c084fc;
+  --neo-accent-green: #4ade80;
+  --neo-accent-red: #f87171;
+  --neo-accent-amber: #d97706;
+}
+
+// Common Neobrutalism Utility Classes
+.neo-box {
+  border: var(--neo-border);
+  border-radius: var(--neo-border-radius);
+  box-shadow: var(--neo-shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  background-color: var(--neo-color-bg-card);
+  color: var(--neo-color-text-main);
+}
+
+.neo-interactive {
+  cursor: pointer;
+
+  @media (prefers-reduced-motion: no-preference) {
+    &:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: var(--neo-shadow-hover);
+    }
+
+    &:active {
+      transform: translate(2px, 2px);
+      box-shadow: var(--neo-shadow-active);
+    }
+  }
+}
+
+.neo-badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: var(--neo-border);
+  border-radius: var(--neo-border-radius-sm);
+  box-shadow: var(--neo-shadow-sm);
+  color: var(--neo-color-text-dark);
+  background-color: var(--neo-color-accent-primary);
+}
+
+// Global focus outline reset for accessibility (WCAG 2.2 AA)
+:focus-visible {
+  outline: 3px solid var(--neo-color-text-dark) !important;
+  outline-offset: 3px !important;
+}

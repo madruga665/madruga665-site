@@ -6,33 +6,27 @@
   justify-content: center;
   padding: 0.5rem 1rem;
   width: 100%;
-  height: 8rem;
-  color: $color-clouds;
+  height: 4.5rem;
+  color: var(--neo-color-text-dark, #000000);
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
-  background: rgba(15, 23, 42, 0.5); 
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px); 
-  border-bottom: 1px solid rgba(44, 62, 80, 0.3);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  background-color: var(--neo-color-bg-header, #fff0cb);
+  border-bottom: var(--neo-border, 3px solid var(--neo-border-color, #000000));
+  box-shadow: 0px 4px 0px var(--neo-border-color, #000000);
 
-  @media only screen and (min-width: 768px) {
-    height: 5rem;
+  @media only screen and (min-width: 900px) {
+    height: 6rem;
+    padding: 0.5rem 2rem;
   }
 }
 
 .headerContent {
   display: flex;
   width: 100%;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  max-width: 1160px;
-  gap: 1rem;
-
-  @media only screen and (min-width: 768px) {
-    flex-direction: row;
-  }
+  max-width: 1200px;
 }

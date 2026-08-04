@@ -1,42 +1,166 @@
 @import '../../styles/colors.module.scss';
 
-.Links {
+.links {
   display: flex;
   align-items: center;
-  font-size: 1rem;
-  width: 100%;
-  height: 100%;
+  position: relative;
+}
 
-  ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 100%;
-    list-style: none;
+// Hamburger Toggle Button (Mobile & Tablet View <900px)
+.hamburgerButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  background-color: var(--neo-accent-yellow, #ffc72c);
+  border: 3px solid var(--neo-border-color, #000000);
+  border-radius: 8px;
+  box-shadow: 3px 3px 0px var(--neo-border-color, #000000);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  z-index: 110;
+
+  &:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px var(--neo-border-color, #000000);
   }
 
-  @media only screen and (min-width: 768px) {
-    width: 25rem;
+  &:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px var(--neo-border-color, #000000);
+  }
+
+  @media only screen and (min-width: 900px) {
+    display: none;
   }
 }
 
-.StyledListItem {
+.bar {
+  width: 100%;
+  height: 3px;
+  background-color: var(--neo-border-color, #000000);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.hamburgerActive {
+  background-color: var(--neo-accent-pink, #ff70a6);
+
+  .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+// Navigation List
+.navList {
+  display: none;
+  list-style: none;
+  gap: 0.5rem;
+
+  @media only screen and (min-width: 900px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: static;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+}
+
+// Mobile & Tablet open menu overlay
+.navListOpen {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 3.5rem;
+  right: 0;
+  width: 14rem;
+  padding: 1rem;
+  background-color: var(--neo-color-bg-card, #fffdf8);
+  border: 3px solid var(--neo-border-color, #000000);
+  border-radius: 8px;
+  box-shadow: 6px 6px 0px var(--neo-border-color, #000000);
+  z-index: 105;
+  gap: 0.75rem;
+
+  @media only screen and (min-width: 380px) {
+    width: 16rem;
+  }
+
+  @media only screen and (min-width: 900px) {
+    flex-direction: row;
+    position: static;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    width: 25rem;
+    background-color: transparent;
+    gap: 0.5rem;
+  }
+}
+
+.styledListItem {
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  text-align: center;
+  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
 
   & a {
-    color: $color-clouds;
+    color: var(--neo-border-color, #000000);
     text-decoration: none;
-    
+    display: block;
+    width: 100%;
+  }
 
-    &:hover {
-      color: $color-primary;
+  &:hover {
+    transform: translate(-1px, -1px);
+    background-color: var(--neo-accent-yellow, #ffc72c);
+    border: 2px solid var(--neo-border-color, #000000);
+    box-shadow: 2px 2px 0px var(--neo-border-color, #000000);
+
+    & a {
+      color: var(--neo-border-color, #000000);
     }
   }
 }
 
-.StyledListItemActive {
-  @extend .StyledListItem;
-  border-bottom: 0.2rem solid $color-primary;
+.styledListItemActive {
+  @extend .styledListItem;
+  background-color: var(--neo-accent-yellow, #ffc72c);
+  border: 3px solid var(--neo-border-color, #000000);
+  border-radius: 6px;
+  box-shadow: 3px 3px 0px var(--neo-border-color, #000000);
+
+  & a {
+    color: var(--neo-border-color, #000000);
+    font-weight: 800;
+
+    &:hover {
+      color: var(--neo-border-color, #000000);
+    }
+  }
+
+  &:hover {
+    transform: translate(-1px, -1px);
+    background-color: var(--neo-accent-yellow, #ffc72c);
+
+    & a {
+      color: var(--neo-border-color, #000000);
+    }
+  }
 }

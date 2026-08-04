@@ -1,17 +1,32 @@
 @import '../../styles/colors.module.scss';
 
-.Container {
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
-.Loader {
-  border: 10px solid $color-midnightBlue;
-  border-top: 10px solid $color-primary;
+.fullScreen {
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  background-color: var(--neo-color-bg-canvas, #facc15);
+  background-image: radial-gradient(#000000 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+}
+
+.loader {
+  border: 6px solid var(--neo-border-color, #000000);
+  border-top: 6px solid var(--neo-accent-yellow, #ffc72c);
   border-radius: 50%;
-  animation: spin 2s linear infinite;
+  box-shadow: 3px 3px 0px #000000;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {

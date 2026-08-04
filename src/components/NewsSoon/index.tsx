@@ -6,8 +6,8 @@ interface INewsSoonProps {
 
 const NewsSoon = ({ title }: INewsSoonProps) => {
   return (
-    <div className={styles.Container}>
-      <h1 className={styles.Title}>{title}</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>{title}</h1>
     </div>
   );
 };

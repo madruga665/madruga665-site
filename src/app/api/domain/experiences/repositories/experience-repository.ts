@@ -24,7 +24,7 @@ export class ExperienceRepository {
       sorts: [
         {
           property: 'year',
-          direction: 'ascending',
+          direction: 'descending',
         },
       ],
     });

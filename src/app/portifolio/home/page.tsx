@@ -30,7 +30,7 @@ async function Home() {
         />
       </div>
       <div className={styles.presentationContainer}>
-        <LinkButton url={curriculo}>
+        <LinkButton variant="pink" url={curriculo}>
           Download Curriculo <FiDownload style={{ marginLeft: 10 }} />
         </LinkButton>
         <WindowCard>

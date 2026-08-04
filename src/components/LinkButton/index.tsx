@@ -1,14 +1,17 @@
-import { PropsWithChildren } from "react";
-import Link from "next/link";
-import styles from "./styles.module.scss";
+import { PropsWithChildren } from 'react';
+import Link from 'next/link';
+import styles from './styles.module.scss';
 
 interface LinkButtonProps {
   url: string;
+  variant?: 'yellow' | 'pink';
 }
 
-function LinkButton({ url, children }: PropsWithChildren<LinkButtonProps>) {
+function LinkButton({ url, variant = 'yellow', children }: PropsWithChildren<LinkButtonProps>) {
+  const buttonClassName = `${styles.linkButton} ${variant === 'pink' ? styles.pink : ''}`.trim();
+
   return (
-    <Link className={styles.linkButton} href={url} target='_blank' rel='noreferrer'>
+    <Link className={buttonClassName} href={url} target="_blank" rel="noreferrer">
       {children}
     </Link>
   );
