@@ -1,0 +1,42 @@
+@import './neobrutalism.scss';
+
+.Toastify__toast {
+  border: var(--neo-border, 3px solid #000000);
+  box-shadow: var(--neo-shadow, 4px 4px 0px #000000);
+  border-radius: var(--neo-border-radius, 8px);
+  color: var(--neo-color-text-main, #000000);
+  font-weight: 700;
+
+  &--success {
+    background-color: var(--neo-accent-green, #4ade80);
+  }
+
+  &--error {
+    background-color: var(--neo-accent-red, #f87171);
+  }
+
+  &--info {
+    background-color: var(--neo-accent-blue, #7dd3fc);
+  }
+
+  &--warning {
+    background-color: var(--neo-accent-yellow, #ffc72c);
+  }
+}
+
+.Toastify__progress-bar {
+  background: #000000;
+  height: 4px;
+  opacity: 1;
+}
+
+.Toastify__close-button {
+  color: #000000;
+  opacity: 1;
+  font-weight: bold;
+
+  &:focus-visible {
+    outline: 3px solid #000000;
+    outline-offset: 2px;
+  }
+}
