@@ -1,6 +1,5 @@
 'use client';
 import { Poppins } from 'next/font/google';
-import { Analytics } from '@vercel/analytics/react';
 import ParticlesBackground from '@/components/ParticlesBackground/ParticlesBackground';
 import '../styles/global.scss';
 
@@ -16,7 +15,6 @@ function RootLayout({ children }: { children: React.ReactNode }) {
         <ParticlesBackground />
         {children}
       </body>
-      <Analytics />
     </html>
   );
 }
