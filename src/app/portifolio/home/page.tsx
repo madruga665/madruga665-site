@@ -16,6 +16,15 @@ export const metadata = {
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
+function getSocialNetworkName(nameOrUrl: string, link: string): string {
+  const combined = `${nameOrUrl} ${link}`.toLowerCase();
+  if (combined.includes('github')) return 'github';
+  if (combined.includes('linkedin')) return 'linkedin';
+  if (combined.includes('instagram')) return 'instagram';
+  if (combined.includes('facebook')) return 'facebook';
+  return 'link';
+}
+
 async function Home() {
   const homePageData = await getHomePageData();
   const { presentation, socialIcons, image, curriculo } = homePageData;
@@ -46,19 +55,22 @@ async function Home() {
           <p>{presentation}</p>
         </WindowCard>
         <div className={styles.socialContainer}>
-          {socialIcons?.map((icon: IconSerealized) => (
-            <Link
-              key={icon.name}
-              href={icon.link}
-              target="_blank"
-              rel="noreferrer"
-              data-track-click={`social-${icon.name.toLowerCase()}`}
-              data-track-category="social"
-              data-track-label={`Social - ${icon.name}`}
-            >
-              <Image src={icon.iconImg} alt={icon.name} width={200} height={200} />
-            </Link>
-          ))}
+          {socialIcons?.map((icon: IconSerealized) => {
+            const network = getSocialNetworkName(icon.name, icon.link);
+            return (
+              <Link
+                key={icon.name}
+                href={icon.link}
+                target="_blank"
+                rel="noreferrer"
+                data-track-click={`social-${network}`}
+                data-track-category="social"
+                data-track-label={`Social - ${network}`}
+              >
+                <Image src={icon.iconImg} alt={network} width={200} height={200} />
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>
