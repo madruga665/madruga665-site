@@ -1,46 +1,122 @@
-# Getting Started with Create React App
+# madruga665-site
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Personal portfolio and contact application built with **Next.js 15 (App Router)**, **React 19**, **TypeScript**, and a **Neobrutalism** visual design system. Integrated with **Notion API** as a CMS and instrumented for production observability with **Grafana**, **Loki**, and **Prometheus**.
+
+---
+
+## Tech Stack
+
+- **Framework**: Next.js 15.5+ (App Router, Standalone build)
+- **UI Library**: React 19
+- **Language**: TypeScript 5+ (Strict mode)
+- **Styling**: Sass / SCSS Modules, CSS custom properties (`src/styles/neobrutalism.scss`)
+- **CMS**: Notion API (`@notionhq/client`)
+- **Forms & Validation**: React Hook Form + Zod
+- **Observability**: Structured JSON logging (Loki), `prom-client` metrics (Prometheus), Healthchecks
+- **Testing**: Jest + React Testing Library
+
+---
 
 ## Available Scripts
 
-In the project directory, you can run:
+```bash
+# Start local development server
+npm run dev
 
-### `yarn start`
+# Run production build
+npm run build
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Start production standalone server
+npm start
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Run ESLint linter
+npm run lint
 
-### `yarn test`
+# Run Jest automated tests
+npm run test
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Run tests with code coverage
+npm run test:coverage
+```
 
-### `yarn build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Observability & Monitoring (Grafana / Loki / Prometheus)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Structured JSON Logging (Loki / Promtail)
+The application emits single-line JSON logs directly to `stdout`/`stderr`. When running in Docker on a VPS, Promtail scrapes container logs and forwards them to Loki.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Sample Log Entry**:
+```json
+{
+  "timestamp": "2026-08-30T20:30:00.000Z",
+  "level": "info",
+  "service": "madruga665-site",
+  "environment": "production",
+  "event": "telemetry.pageview",
+  "message": "Pageview telemetry event recorded",
+  "path": "/portifolio/projetos",
+  "context": { "sessionId": "...", "referrer": null }
+}
+```
 
-### `yarn eject`
+**Promtail Pipeline Example (`promtail-config.yml`)**:
+```yaml
+scrape_configs:
+  - job_name: docker-containers
+    docker_sd_configs:
+      - host: unix:///var/run/docker.sock
+        refresh_interval: 5s
+    pipeline_stages:
+      - json:
+          expressions:
+            level: level
+            event: event
+            service: service
+            path: path
+      - labels:
+          level:
+          event:
+          service:
+          path:
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 2. Prometheus Metrics Endpoint (`/api/metrics`)
+Prometheus scrapes operational and telemetry metrics from `/api/metrics`:
+- `http_requests_total{method, route, status}`
+- `http_request_duration_seconds{method, route, status}` (Histogram)
+- `telemetry_pageviews_total{route}`
+- `telemetry_clicks_total{target, category}`
+- `contact_form_submissions_total{status}`
+- Node.js default process metrics (CPU, Memory, Event Loop)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Prometheus Scrape Configuration (`prometheus.yml`)**:
+```yaml
+scrape_configs:
+  - job_name: 'madruga665-site'
+    scrape_interval: 15s
+    metrics_path: '/api/metrics'
+    static_configs:
+      - targets: ['localhost:3000']
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 3. Healthcheck Endpoint (`/api/health`)
+Returns service health and uptime:
+```bash
+curl http://localhost:3000/api/health
+```
+```json
+{
+  "status": "healthy",
+  "uptimeSeconds": 142.5,
+  "timestamp": "2026-08-30T20:30:00.000Z",
+  "version": "0.1.0",
+  "environment": "production"
+}
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+## License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Private repository. Copyright © 2026 madruga665.

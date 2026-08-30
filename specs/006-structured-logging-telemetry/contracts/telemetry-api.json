@@ -1,0 +1,121 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "madruga665-site Telemetry API",
+    "version": "1.0.0",
+    "description": "Internal asynchronous endpoint for collecting client-side pageview and click events without storing PII."
+  },
+  "paths": {
+    "/api/telemetry": {
+      "post": {
+        "summary": "Ingest client telemetry event",
+        "operationId": "ingestTelemetryEvent",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  { "$ref": "#/components/schemas/PageViewPayload" },
+                  { "$ref": "#/components/schemas/ClickPayload" },
+                  { "$ref": "#/components/schemas/FormSubmissionPayload" }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Event accepted and logged asynchronously",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "received": { "type": "boolean", "example": true }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid event schema payload",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": { "type": "string", "example": "Invalid telemetry payload" },
+                    "details": { "type": "array", "items": { "type": "object" } }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BasePayload": {
+        "type": "object",
+        "required": ["eventId", "timestamp", "sessionId", "eventType", "route"],
+        "properties": {
+          "eventId": { "type": "string", "format": "uuid" },
+          "timestamp": { "type": "string", "format": "date-time" },
+          "sessionId": { "type": "string", "format": "uuid" },
+          "eventType": { "type": "string", "enum": ["pageview", "click", "form_submission"] },
+          "route": { "type": "string" }
+        }
+      },
+      "PageViewPayload": {
+        "allOf": [
+          { "$ref": "#/components/schemas/BasePayload" },
+          {
+            "type": "object",
+            "required": ["eventType"],
+            "properties": {
+              "eventType": { "type": "string", "enum": ["pageview"] },
+              "referrer": { "type": "string", "nullable": true },
+              "screenResolution": { "type": "string" },
+              "language": { "type": "string" }
+            }
+          }
+        ]
+      },
+      "ClickPayload": {
+        "allOf": [
+          { "$ref": "#/components/schemas/BasePayload" },
+          {
+            "type": "object",
+            "required": ["eventType", "targetId", "category", "label"],
+            "properties": {
+              "eventType": { "type": "string", "enum": ["click"] },
+              "targetId": { "type": "string" },
+              "category": { "type": "string" },
+              "label": { "type": "string" },
+              "href": { "type": "string", "nullable": true }
+            }
+          }
+        ]
+      },
+      "FormSubmissionPayload": {
+        "allOf": [
+          { "$ref": "#/components/schemas/BasePayload" },
+          {
+            "type": "object",
+            "required": ["eventType", "formId", "status", "durationMs"],
+            "properties": {
+              "eventType": { "type": "string", "enum": ["form_submission"] },
+              "formId": { "type": "string", "enum": ["contact_form"] },
+              "status": { "type": "string", "enum": ["success", "failure"] },
+              "durationMs": { "type": "number" },
+              "errorCode": { "type": "string" }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

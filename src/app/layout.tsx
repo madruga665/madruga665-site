@@ -1,6 +1,7 @@
 'use client';
 import { Poppins } from 'next/font/google';
 import ParticlesBackground from '@/components/ParticlesBackground/ParticlesBackground';
+import { TelemetryProvider } from '@/components/Telemetry';
 import '../styles/global.scss';
 
 const poppins = Poppins({
@@ -13,7 +14,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <body className={poppins.className}>
         <ParticlesBackground />
-        {children}
+        <TelemetryProvider>{children}</TelemetryProvider>
       </body>
     </html>
   );

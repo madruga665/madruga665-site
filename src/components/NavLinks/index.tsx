@@ -42,7 +42,14 @@ export function NavLinks({ paths }: NavLinksProps) {
             key={item.title}
             onClick={closeMenu}
           >
-            <Link href={item.path}>{item.title}</Link>
+            <Link
+              href={item.path}
+              data-track-click={`nav-${item.title.toLowerCase()}`}
+              data-track-category="navigation"
+              data-track-label={`Nav - ${item.title}`}
+            >
+              {item.title}
+            </Link>
           </li>
         ))}
       </ul>

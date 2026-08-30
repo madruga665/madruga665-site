@@ -1,14 +1,23 @@
-import { PropsWithChildren } from 'react';
+import { AnchorHTMLAttributes, PropsWithChildren } from 'react';
 import Link from 'next/link';
 import styles from './styles.module.scss';
 
-interface LinkButtonProps {
+interface LinkButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   url: string;
   variant?: 'yellow' | 'pink';
   disabled?: boolean;
+  'data-track-click'?: string;
+  'data-track-category'?: string;
+  'data-track-label'?: string;
 }
 
-function LinkButton({ url, variant = 'yellow', disabled, children }: PropsWithChildren<LinkButtonProps>) {
+function LinkButton({
+  url,
+  variant = 'yellow',
+  disabled,
+  children,
+  ...rest
+}: PropsWithChildren<LinkButtonProps>) {
   const buttonClassName = `${styles.linkButton} ${variant === 'pink' ? styles.pink : ''} ${disabled ? styles.disabled : ''}`.trim();
 
   if (disabled) {
@@ -18,6 +27,7 @@ function LinkButton({ url, variant = 'yellow', disabled, children }: PropsWithCh
         className={buttonClassName}
         aria-disabled="true"
         onClick={(e) => e.preventDefault()}
+        {...rest}
       >
         {children}
       </Link>
@@ -25,7 +35,13 @@ function LinkButton({ url, variant = 'yellow', disabled, children }: PropsWithCh
   }
 
   return (
-    <Link className={buttonClassName} href={url} target="_blank" rel="noreferrer">
+    <Link
+      className={buttonClassName}
+      href={url}
+      target="_blank"
+      rel="noreferrer"
+      {...rest}
+    >
       {children}
     </Link>
   );

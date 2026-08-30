@@ -15,7 +15,13 @@ function Home() {
         <Brand />
         <span>Desenvolvedor Web Fullstack</span>
       </div>
-      <Link role="button" href="/portifolio/home">
+      <Link
+        role="button"
+        href="/portifolio/home"
+        data-track-click="landing-enter-portfolio"
+        data-track-category="navigation"
+        data-track-label="Ir para portifolio"
+      >
         ir para portifolio
       </Link>
     </div>

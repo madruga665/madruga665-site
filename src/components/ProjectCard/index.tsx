@@ -79,8 +79,22 @@ function ProjectCard(project: ProjectSerealized) {
         </div>
       </div>
       <footer>
-        <LinkButton url={project.githubRepository}>Repositório no Github</LinkButton>
-        <LinkButton url={project.production} variant="pink" disabled={project.is_active === false}>
+        <LinkButton
+          url={project.githubRepository}
+          data-track-click="project-github-link"
+          data-track-category="project"
+          data-track-label={`GitHub - ${project.name}`}
+        >
+          Repositório no Github
+        </LinkButton>
+        <LinkButton
+          url={project.production}
+          variant="pink"
+          disabled={project.is_active === false}
+          data-track-click="project-production-link"
+          data-track-category="project"
+          data-track-label={`Live Demo - ${project.name}`}
+        >
           Ver o projeto
         </LinkButton>
       </footer>

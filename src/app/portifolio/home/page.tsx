@@ -33,7 +33,13 @@ async function Home() {
         />
       </div>
       <div className={styles.presentationContainer}>
-        <LinkButton variant="pink" url={curriculo}>
+        <LinkButton
+          variant="pink"
+          url={curriculo}
+          data-track-click="download-resume"
+          data-track-category="cta"
+          data-track-label="Download Curriculo"
+        >
           Download Curriculo <FiDownload style={{ marginLeft: 10 }} />
         </LinkButton>
         <WindowCard>
@@ -41,7 +47,15 @@ async function Home() {
         </WindowCard>
         <div className={styles.socialContainer}>
           {socialIcons?.map((icon: IconSerealized) => (
-            <Link key={icon.name} href={icon.link} target="_blank" rel="noreferrer">
+            <Link
+              key={icon.name}
+              href={icon.link}
+              target="_blank"
+              rel="noreferrer"
+              data-track-click={`social-${icon.name.toLowerCase()}`}
+              data-track-category="social"
+              data-track-label={`Social - ${icon.name}`}
+            >
               <Image src={icon.iconImg} alt={icon.name} width={200} height={200} />
             </Link>
           ))}

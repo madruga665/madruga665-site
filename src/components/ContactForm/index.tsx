@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { Button } from '@/components/Button';
 import { formData } from '@/interfaces/contactPage';
 import { onSubmit } from '@/app/portifolio/contato/contact.service';
+import { trackFormSubmission } from '@/components/Telemetry';
 import styles from './styles.module.scss';
 
 export function ContactForm() {
@@ -17,15 +18,33 @@ export function ContactForm() {
   const { errors, isSubmitting } = formState;
   const router = useRouter();
 
+  const handleFormSubmit = async (data: formData) => {
+    const start = performance.now();
+    try {
+      await onSubmit(data, () => {
+        reset();
+        router.refresh();
+      });
+      trackFormSubmission({
+        formId: 'contact_form',
+        status: 'success',
+        durationMs: performance.now() - start,
+        route: '/portifolio/contato',
+      });
+    } catch {
+      trackFormSubmission({
+        formId: 'contact_form',
+        status: 'failure',
+        durationMs: performance.now() - start,
+        route: '/portifolio/contato',
+      });
+    }
+  };
+
   return (
     <form
       className={styles.form}
-      onSubmit={handleSubmit((data) =>
-        onSubmit(data, () => {
-          reset();
-          router.refresh();
-        }),
-      )}
+      onSubmit={handleSubmit(handleFormSubmit)}
     >
       <p className={styles.text}>
         Caso queira entrar em contado ou deixar algum feedback fique à vontade para me mandar
